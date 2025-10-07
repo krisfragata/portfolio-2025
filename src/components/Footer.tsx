@@ -9,7 +9,7 @@ const Footer: React.FC<FooterProps> = ({ links }) => {
         <div className="footer">
            {
             links.map(link => (
-                <a key={link.href} href={link.href} className="socials-button">
+                <a key={link.href} target="_blank" href={link.href} className="socials-button" >
                     {link.label}
                 </a>
             ))
@@ -18,4 +18,4 @@ const Footer: React.FC<FooterProps> = ({ links }) => {
     )
 }
 
-export default Footer
+export default Footer;
