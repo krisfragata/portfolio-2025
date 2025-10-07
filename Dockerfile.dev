@@ -1,0 +1,20 @@
+# use node alpine 
+FROM node:latest
+
+# set a working directory in the container
+WORKDIR /app
+
+# copy package.json into root
+COPY package*.json ./
+
+# yarn install
+RUN yarn install
+
+# copy everything in directory
+COPY . .
+
+# expose port
+EXPOSE 3000
+
+# yarn start.dev
+CMD [ "yarn", "dev" ]

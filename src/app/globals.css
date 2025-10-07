@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FFF0E5;
+  --foreground: #FFF0E5;
+  --text-main: #427B78; /* main color for texts */
+  --primary-text: #D22727; /* highlighting color for important texts */
+  --text-highlight-dark-bg: #F6EEC8; /* text color for darker backgrounds */
+  --button-light: #8DB2B0; /* highlighting color for buttons */
 }
 
 @theme inline {
@@ -14,13 +18,143 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #FFF0E5;
     --foreground: #ededed;
   }
 }
 
 body {
-  background: var(--background);
+  background: var(--foreground);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-krub), sans-serif;
 }
+
+.sidemenu {
+  font-family: var(--font-krub);
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-end;
+  min-width: 30%;
+  color: var(--text-main);
+  top: 0%;
+  order: 2;
+}
+
+.sidemenu-item {
+  padding-bottom: 1.25rem;
+}
+
+.sidemenu-item:hover {
+  color: var(--primary-text);
+}
+
+.home {
+  display: flex;
+  margin: 7em;
+  flex-direction: row;
+}
+
+.title {
+  font-family: var(--font-kumar-one);
+  color: var(--primary-text);
+  font-size: xx-large;
+  height: fit-content;
+}
+
+.title:hover {
+  cursor: pointer;
+}
+
+.text-primary {
+  color: var(--primary-text);
+}
+
+.left-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-width: 70%;
+  min-height: 100%;
+  order: 1;
+}
+
+.left-header {
+  flex-shrink: 0;
+  padding-bottom: 10rem;
+  min-height: 20%;
+  order: 1;
+}
+
+.left-main-text{
+  color: var(--text-main);
+  font-weight: 600;
+  font-style: normal;
+  font-size: x-large;
+  max-width: 60%;
+  min-height: 60%;
+  order: 2;
+}
+
+.left-footer{
+  padding-top: 3rem;
+  min-height: 20%;
+  order: 3;
+}
+
+.footer {
+  display: flex;
+  min-width: auto;
+  justify-content: start;
+  color: var(--text-main);
+  align-items: flex-start;
+}
+
+.socials-button {
+  border: 0.1em solid var(--button-light);
+  margin-right: 2rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.25rem;
+  padding-top: 0.25rem;
+}
+
+.socials-button:hover {
+  border: 0.1em solid var(--button-light);
+  background-color: var(--button-light);
+  color: var(--text-highlight-dark-bg);
+}
+
+/* change order on small screens */
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;
+    margin: 4em;
+  }
+  .left-header {
+    padding: 0;
+  }
+  .left-footer {
+    order: 3;
+    margin-top: 0.1em;
+  }
+  .left-main-text {
+    order: 2;
+    max-width: 100%;
+    font-size: large;
+    padding-top: 1em;
+  }
+  .sidemenu {
+    align-items: start;
+    padding-top: 2em;
+  }
+  .footer {
+    font-size: medium;
+  }
+  .socials-button {
+    font-size: small;
+  }
+}
+
+
+
