@@ -13,13 +13,13 @@ export default function Home() {
     { label: 'SOFTWARE PROJECTS.', href: '/software'},
     { label: 'ART PROJECTS.', href: '/art'},
     { label: 'MORE ABOUT.', href: '/more'},
-    { label: 'RESUME.', href: '/resume'}
+    // { label: 'RESUME.', href: '/resume'}
   ]
 
   const socialsLinks: Links[] = [
     { label: 'LinkedIn', href: 'http://linkedin.com/in/krisfragata'},
     { label: 'Github', href: 'http://github.com/krisfragata'},
-    { label: 'Email', href:'kristinnefragata@outlook.com'},
+    // { label: 'Email', href:'kristinnefragata@outlook.com'},
   ]
 
   return (
