@@ -24,9 +24,16 @@ export default function Home() {
 
   return (
     <div className="home">
-      <div className="left">
-        <Title/>
-        <Footer links={socialsLinks}/>
+      <div className="left-wrapper">
+        <div className="left-header">
+          <Title/>
+        </div>
+        <div className="left-main-text">
+          I’m a <span className="text-primary">software engineer</span> and <span className="text-primary">artist</span> based in Boston, Massachusetts and Manila, Philippines. 
+        </div>
+        <div className="left-footer">
+          <Footer links={socialsLinks}/>
+        </div>
       </div>
       <NavSideBar links={sidebarItems}/>
     </div>
