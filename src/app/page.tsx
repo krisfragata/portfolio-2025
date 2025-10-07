@@ -19,7 +19,6 @@ export default function Home() {
   const socialsLinks: Links[] = [
     { label: 'LinkedIn', href: 'http://linkedin.com/in/krisfragata'},
     { label: 'Github', href: 'http://github.com/krisfragata'},
-    // { label: 'Email', href:'kristinnefragata@outlook.com'},
   ]
 
   return (
@@ -36,6 +35,9 @@ export default function Home() {
         </div>
       </div>
       <NavSideBar links={sidebarItems}/>
+      <div className="left-footer-small">
+          <Footer links={socialsLinks}/>
+        </div>
     </div>
   );
 }
