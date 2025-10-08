@@ -88,7 +88,7 @@ body {
 
 .left-main-text{
   color: var(--text-main);
-  font-weight: 600;
+  font-weight: 500;
   font-style: normal;
   font-size: xx-large;
   max-width: 60%;

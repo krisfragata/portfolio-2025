@@ -48,7 +48,7 @@ export default function RootLayout({
     { label: 'SOFTWARE PROJECTS.', href: '/software'},
     { label: 'ART PROJECTS.', href: '/art'},
     { label: 'MORE ABOUT.', href: '/more'},
-    { label: 'RESUME.', href: '/resume'}
+    { label: 'EXPERIENCES.', href: '/experiences'}
   ]
 
   const socialsLinks: Links[] = [
