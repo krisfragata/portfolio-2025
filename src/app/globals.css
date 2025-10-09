@@ -24,10 +24,12 @@
 }
 
 body {
-  background: var(--foreground);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-krub), sans-serif;
 }
+
+/* nav bar styling */
 
 .sidemenu {
   font-family: var(--font-krub);
@@ -50,12 +52,21 @@ body {
   color: var(--primary-text);
 }
 
+.sidemenu-item-active {
+  color: var(--primary-text);
+  padding-bottom: 1.25rem;
+  font-weight: 600;
+}
+
+/* whole home page styling */
+
 .home {
   display: flex;
   margin: 7em;
   flex-direction: row;
 }
 
+/* title styling  */
 .title {
   font-family: var(--font-kumar-one);
   color: var(--primary-text);
@@ -71,6 +82,8 @@ body {
   color: var(--primary-text);
 }
 
+/* layout wrappers styling  */
+
 .left-wrapper {
   display: flex;
   flex-direction: column;
@@ -81,7 +94,7 @@ body {
 
 .left-header {
   flex-shrink: 0;
-  padding-bottom: 7rem;
+  padding-bottom: 5rem;
   min-height: 20%;
   order: 1;
 }
@@ -131,6 +144,56 @@ body {
   background-color: var(--button-light);
   color: var(--text-highlight-dark-bg);
 }
+
+.software-projects-list {
+  /* font-weight: 500;
+  font-style: normal;
+  font-size: xx-large;
+  max-width: 60%;
+  min-height: 60%;  */
+}
+
+.software-projects-list-item:hover {
+  cursor: pointer;
+  color: var(--primary-text);
+}
+
+/* image modal */
+.image-modal {
+  position: fixed;
+  bottom: 0rem;
+  left: 0rem;
+  min-width: 50%;
+  min-height: 50%;
+  border: 0.05em solid var(--primary-text); 
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+}
+
+.image-container {
+  height: fit-content;
+  min-height: 80%;
+}
+
+.image-modal-actions {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.image-modal-button {
+  margin-right: 2rem;
+}
+
+.image-modal-button:hover {
+  cursor: pointer;
+  color: var(--primary-text);
+}
+
+
+
 
 /* change order on small screens */
 @media (max-width: 768px) {

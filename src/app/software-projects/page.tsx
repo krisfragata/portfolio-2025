@@ -1,7 +1,7 @@
 'use client'
 import React, { MouseEvent, MouseEventHandler, useRef, useState } from "react";
 import { projects } from './project-list';
-import ImageModal from "./ImageModal";
+import ImageModal from "../../components/ImageModal";
 
 const SoftwareProjects: React.FC = () => {
     // track the state of each project?
@@ -15,13 +15,13 @@ const SoftwareProjects: React.FC = () => {
         return projects.map(project => {
             switch (project.id) {
                 case 'portfolio':
-                    return <ImageModal project={project} setIsModalOpen={setIsPortfolioImageOpen} isModalOpen={isPortfolioImageOpen} key={project.id} />
+                    return <ImageModal project={project} setIsModalOpen={setIsPortfolioImageOpen} isModalOpen={isPortfolioImageOpen} key={project.id} extraStyling=""/>
                 case 'flow_scraper':
-                    return <ImageModal project={project} setIsModalOpen={setIsWebScraperImageOpen} isModalOpen={isWebScraperImageOpen} key={project.id} />
+                    return <ImageModal project={project} setIsModalOpen={setIsWebScraperImageOpen} isModalOpen={isWebScraperImageOpen} key={project.id} extraStyling="mb-10" />
                 case 'svisualize':
-                    return <ImageModal project={project} setIsModalOpen={setIsSvisualizeImageOpen} isModalOpen={isSvisualizeImageOpen} key={project.id} />
+                    return <ImageModal project={project} setIsModalOpen={setIsSvisualizeImageOpen} isModalOpen={isSvisualizeImageOpen} key={project.id} extraStyling="mb-30"/>
                 case 'daily_dose':
-                    return <ImageModal project={project} setIsModalOpen={setIsDailyDoseImageOpen} isModalOpen={isDailyDoseImageOpen} key={project.id}/>
+                    return <ImageModal project={project} setIsModalOpen={setIsDailyDoseImageOpen} isModalOpen={isDailyDoseImageOpen} key={project.id} extraStyling=""/>
             }
         })
     }
@@ -29,13 +29,13 @@ const SoftwareProjects: React.FC = () => {
     const list = projects.map((project, index) => {
         switch (project.id) {
             case 'portfolio':
-                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { console.log('lol'); setIsPortfolioImageOpen(true)}}>{`${index + 1}. ${project.title}`}</li> 
+                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { console.log('lol'); setIsPortfolioImageOpen(true)}}>{`${project.title}`}</li> 
             case 'flow_scraper':
-                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => setIsWebScraperImageOpen(true)}>{`${index + 1}. ${project.title}`}</li>
+                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => setIsWebScraperImageOpen(true)}>{`${project.title}`}</li>
             case 'svisualize':
-                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => setIsSvisualizeImageOpen(true)}>{`${index + 1}. ${project.title}`}</li>
+                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => setIsSvisualizeImageOpen(true)}>{`${project.title}`}</li>
             case 'daily_dose':
-                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => setIsDailyDoseImageOpen(true)}>{`${index + 1}. ${project.title}`}</li>
+                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => setIsDailyDoseImageOpen(true)}>{`${project.title}`}</li>
         }
     });
 
