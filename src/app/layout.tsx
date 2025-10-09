@@ -4,7 +4,6 @@ import "./globals.css";
 import Title from "@/components/Title";
 import Footer from "@/components/Footer";
 import NavSideBar from "@/components/NavSidebar";
-import StoreProvider from "./StoreProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -61,8 +60,7 @@ export default function RootLayout({
       <body
         className={`${kumarOne.variable} ${krub.variable} antialiased`}
       >
-        <StoreProvider>
-<div className="home">
+         <div className="home">
       <div className="left-wrapper">
         <div className="left-header">
           <Title/>
@@ -77,8 +75,6 @@ export default function RootLayout({
           <Footer links={socialsLinks}/>
         </div>
     </div>
-        </StoreProvider>
-         
       </body>
     </html>
   );
