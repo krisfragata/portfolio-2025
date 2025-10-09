@@ -1,12 +1,50 @@
-import React from "react";
-import projects from './project-list';
+'use client'
+import React, { MouseEvent, MouseEventHandler, useRef, useState } from "react";
+import { projects } from './project-list';
+import ImageModal from "./ImageModal";
+
 const SoftwareProjects: React.FC = () => {
+    // track the state of each project?
+    const [isPortfolioImageOpen, setIsPortfolioImageOpen] = useState(false);
+    const [isWebScraperImageOpen, setIsWebScraperImageOpen] = useState(false);
+    const [isSvisualizeImageOpen, setIsSvisualizeImageOpen] = useState(false); 
+    const [isDailyDoseImageOpen, setIsDailyDoseImageOpen] = useState(false);
+
+
+    const renderImageModals = () => {
+        return projects.map(project => {
+            switch (project.id) {
+                case 'portfolio':
+                    return <ImageModal project={project} setIsModalOpen={setIsPortfolioImageOpen} isModalOpen={isPortfolioImageOpen} key={project.id} />
+                case 'flow_scraper':
+                    return <ImageModal project={project} setIsModalOpen={setIsWebScraperImageOpen} isModalOpen={isWebScraperImageOpen} key={project.id} />
+                case 'svisualize':
+                    return <ImageModal project={project} setIsModalOpen={setIsSvisualizeImageOpen} isModalOpen={isSvisualizeImageOpen} key={project.id} />
+                case 'daily_dose':
+                    return <ImageModal project={project} setIsModalOpen={setIsDailyDoseImageOpen} isModalOpen={isDailyDoseImageOpen} key={project.id}/>
+            }
+        })
+    }
+    
     const list = projects.map((project, index) => {
-        <li key={index}>{project.title}</li>
-    })
+        switch (project.id) {
+            case 'portfolio':
+                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { console.log('lol'); setIsPortfolioImageOpen(true)}}>{`${index + 1}. ${project.title}`}</li> 
+            case 'flow_scraper':
+                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => setIsWebScraperImageOpen(true)}>{`${index + 1}. ${project.title}`}</li>
+            case 'svisualize':
+                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => setIsSvisualizeImageOpen(true)}>{`${index + 1}. ${project.title}`}</li>
+            case 'daily_dose':
+                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => setIsDailyDoseImageOpen(true)}>{`${index + 1}. ${project.title}`}</li>
+        }
+    });
+
+
+
     return (
-        <div>
-            <ol>list</ol>
+        <div className="left-main-text">
+            <ol className="software-project-list">{list}</ol>
+            {renderImageModals()}
         </div>
     );
 }

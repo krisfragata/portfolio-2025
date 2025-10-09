@@ -1,12 +1,16 @@
-interface Project {
+import portfolioGif from '@/../public/software-projects/portfolio.gif';
+import { StaticImageData } from 'next/image';
+
+export interface Project {
     title: string;
     year: string;
     description: string[];
     githubLink: string;
-    imageSources: string[];
+    imageSources: StaticImageData[];
     plans: string;
     figma: string;
     otherLinks: Link[];
+    id: string;
 }
 
 interface Link {
@@ -14,7 +18,8 @@ interface Link {
     href: string;
 }
 
-const projects:Project[] = [
+
+export const projects:Project[] = [
     // {
     //     title: 'Music Through Data (in progress)',
     //     year: '2025',
@@ -38,7 +43,7 @@ const projects:Project[] = [
         ],
         githubLink: 'https://github.com/krisfragata/portfolio-2025',
         figma: 'https://www.figma.com/design/YbeBREcMmnx4Rc5NnjY9uB/PORTFOLIO-2024?node-id=1-2&p=f&t=I7weaie9PBFcH5DR-0',
-        imageSources: [],
+        imageSources: [portfolioGif],
         plans: "I'd like to eventually incorporate a small, platform, climbing game into the home page of this site. To implement it, I'm thinking of incorporating HTML5 Canvas or venture into Three.JS",
         otherLinks: [
             {
@@ -50,6 +55,7 @@ const projects:Project[] = [
                 href: "https://docs.google.com/spreadsheets/d/1OQFnopnFvUKSWVXVcS_JFpXz5dXvF2bc8bWRuYQ0DuE/edit?usp=sharing"
             }
         ],
+        id: 'portfolio',
     },
     //  {
     //     title: 'Guitar Trainer (in progress)',
@@ -79,6 +85,7 @@ const projects:Project[] = [
         plans: "Currently, there is no plan to continue the What's the Flow mobile application but perhaps this application can be leveraged in other ways.",
         figma: 'NA',
         otherLinks: [],
+        id: 'flow_scraper',
     },
     {
         title: 'Svisualize',
@@ -98,6 +105,7 @@ const projects:Project[] = [
             label: 'Landing Page',
             href: 'https://svisualize.dev/'
         }],
+        id: 'svisualize',
     }, 
     {
         title: 'Daily Dose',
@@ -115,7 +123,6 @@ const projects:Project[] = [
             label: "Daily Dose site",
             href: "https://alevytsky.work/daily-dose"
         }],
+        id: 'daily_dose',
     }
 ];
-
-export default projects;
