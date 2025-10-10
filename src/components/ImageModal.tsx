@@ -6,20 +6,21 @@ interface ImageModalProps {
     setIsModalOpen: Function;
     isModalOpen: boolean;
     extraStyling: string;
+    handleOpenText: Function;
 }
 
-const ImageModal: React.FC<ImageModalProps> = ({project, setIsModalOpen, isModalOpen, extraStyling}) => {
+const ImageModal: React.FC<ImageModalProps> = ({project, setIsModalOpen, isModalOpen, extraStyling, handleOpenText}) => {
     const handleClose = () => {
         setIsModalOpen(false);
     }
     const renderModal = () => {
         const modal = isModalOpen ? <div className={`image-modal ${extraStyling}`}>
+            <div className="image-modal-actions">
+                <div className="image-modal-button" onClick={() => handleOpenText()}>(more info...)</div>
+                <div className="image-modal-button" onClick={handleClose}>(close)</div>
+            </div>
             <div className="image-container">
 
-            </div>
-            <div className="image-modal-actions">
-                <div className="image-modal-button">(more...)</div>
-                <div className="image-modal-button" onClick={handleClose}>(close)</div>
             </div>
         </div> : null
         return modal;
