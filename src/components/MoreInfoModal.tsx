@@ -52,13 +52,11 @@ const MoreInfoModal: React.FC<MoreInfoModalProps> = ({project, setIsModalOpen, i
      */
     const renderDescription = () => {
         return <div className="info-right">
-            <div className="info-description">
                 {
                     project.description.map((line, i) => (
                         <p key={i} className="description-paragraph">{line}</p>
                     ))
                 }
-            </div>
         </div>
     }
     const renderModal = () => {
