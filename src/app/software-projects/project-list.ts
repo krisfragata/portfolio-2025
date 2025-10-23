@@ -1,4 +1,5 @@
 import portfolioGif from '@/../public/software-projects/portfolio.gif';
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import { StaticImageData } from 'next/image';
 
 export interface Project {
@@ -6,7 +7,7 @@ export interface Project {
     year: string;
     description: string[];
     githubLink: string;
-    imageSources: StaticImageData[];
+    imageSources: StaticImport[];
     plans: string;
     figma: string;
     otherLinks: Link[];
@@ -33,13 +34,14 @@ export const projects:Project[] = [
     //     otherLinks: [],
     // },
     {
-        title: 'this.portfolio',
+        title: 'this.Portfolio',
         year: '2025',
         description: [
-            "this.portfolio ;) is a software and art portfolio designed from scratch with the goal of summarizing, to the best of my ability, all my most impressive work.",
-            "The design of this portfolio went through a few iterations which can be seen on the figma link listed on the left (below for mobile). I struggled with determining how to display the multiple disciplines that I take part in; software, music, writing, photography. Ultimately, I decided on a design that was clean but still expressed my personality both because I felt that simplicity would help drive progress towards a complete portfolio and to reduce the brain clutter that comes with taking on a multi-disciplinary portfolio. What helped most was grouping my projects into 2 simple categories, software and art.",
-            "The implementation was made with NextJS 15, typescript, React and vanilla CSS. After a couple years of working with component libraries and the like, I found this project to be a refreshing experience, allowing me to appreciate the simplicity and power of TSX + vanilla CSS.",
-            "This is the first project I'm embarking on since my recent unemployment. In order to stay motivated, I decided to continue the organizational habits I kept from my last role. In the links section you'll find the Jira Kanban Board I am using to organize this project (as well as other projects) and my Daily Standup Spreadsheet."
+            "this.Portfolio was designed from scratch with the goal of summarizing, to the best of my ability, all my most impressive work.",
+            "It went through a few iterations which can be seen on the figma link listed on the left (below for mobile). I struggled with determining how to display the multiple disciplines that I take part in; software, music, writing, photography. Ultimately, I grouped my works into 2 simple categories, software and art.",
+            "I decided on a design that was clean but still expressed my personality both because I felt that simplicity would help drive progress towards a complete portfolio and to reduce the brain clutter that comes with taking on a multi-disciplinary portfolio.",
+            "This was made with NextJS 15, typescript, React and vanilla CSS.",
+            "In the links section you'll find the Jira Kanban Board I am using to organize this project (as well as other projects) and my Daily Standup Spreadsheet."
         ],
         githubLink: 'https://github.com/krisfragata/portfolio-2025',
         figma: 'https://www.figma.com/design/YbeBREcMmnx4Rc5NnjY9uB/PORTFOLIO-2024?node-id=1-2&p=f&t=I7weaie9PBFcH5DR-0',
@@ -91,11 +93,11 @@ export const projects:Project[] = [
         title: 'Svisualize',
         year: '2023',
         description: [
-            "Svisualize is a Svelte component visualizer built for developers. The VS Code extension allows developers to see the shape of their web application as they code. Svisualize was developed by a team of 4 under an agile workflow.",
-            "The implementation was done using Typescript, Svelte, and D3.js for generating a dynamic, interactive component tree, and Node file system library. I enjoyed this project as Svelte was a new framework for me. Working with Svelte has allowed me to see that most Javascript frameworks share many common grounds that can applied to each other. From a soft skills point of view, this project helped develop my skills as a mentor. Particularly, a mentor that can point their team members in the right direction without doing the problem solving for them.",
-            "A challenge that my team and I found was the lack of documentation for Svelte and D3.js which made implementation slow and cumbersome. We had started the project with the focus of exploring new Javascript frameworks but without this goal, if I were to do this again, I would choose either a more compatible framework for D3.js or a more compatible data visualization library for Svelte.",
-            "For future implementation, I would also suggest a more robust and detailed commit message structure to aid in maintenance and readability.",
-            "Feel free to check out the landing page for the application on the links to the left (or below for mobile)."
+            "Svisualize is a Svelte component visualizer built for developers. Svisualize was developed by a team of 4 under an agile workflow.",
+            "It was built with Typescript, Svelte, and D3.js. I enjoyed this project as Svelte was a new framework for me. Working with Svelte has allowed me to see that most Javascript frameworks share many common grounds that can applied to each other.",
+            "A challenge that my team and I found was the lack of documentation for D3.js under Svelte which made implementation slow.",
+            "For future implementation, I would implement a more robust and detailed commit message structure to aid in maintenance and readability. I would also choose either a more compatible framework for D3.js or a more compatible data visualization library for Svelte.",
+            "I've linked the landing page on the links section to the left (or below for mobile)."
         ],
         githubLink: 'NA',
         imageSources: [],
@@ -111,9 +113,9 @@ export const projects:Project[] = [
         title: 'Daily Dose',
         year: '2020',
         description: [
-            "'Daily Dose is a digital repository of Sol Lewitt's Wall Drawings, framed as a tool to form creative habits' - Andriana Levytsky, Designer.",
-            "I developed the HTML5 Canvas functionality in Daily Dose. During the project, I worked with designer, Andriana Levytsky, to create the interactive gallery seen in the links section. This was my first collaborative coding project, and the project that birthed my love for programming.",
-            "I found HTML5 Canvas to be frustrating but rewarding. It's finnicky, but also so simple and with the right logic, and math, one can so many fun things as seen in this project. This project was made very early on in my programming journey so if I were to do it again, I would do a better job of documenting and structuring the code to be more readable and maintainable. Lastly, this project also taught me the necessary skills to communicate and translate the needs of a designer into the desired output."
+            "<<Daily Dose is a digital repository of Sol Lewitt's Wall Drawings, framed as a tool to form creative habits>> - Andriana Levytsky, Graphic Designer.",
+            "I developed the HTML5 Canvas functionality in Daily Dose. I worked with graphic designer, Andriana Levytsky, to create the interactive gallery.",
+            "This was my first collaborative coding project, and the project that birthed my love for programming. I found HTML5 Canvas to be finnicky but rewarding. With the right logic and math one can so many fun things. This project was made very early on in my programming journey so if I were to do it again, I would do a better job of documenting and structuring the code to be more readable and maintainable. Lastly, this project also taught me the necessary skills to communicate and translate the needs of a designer into the desired output."
         ],
         githubLink: 'https://github.com/andrianalevytsky/dailydose',
         imageSources: [],
@@ -121,7 +123,7 @@ export const projects:Project[] = [
         figma: 'NA',
         otherLinks: [{
             label: "Daily Dose site",
-            href: "https://alevytsky.work/daily-dose"
+            href: "https://andrianalevytsky.github.io/dailydose/"
         }],
         id: 'daily_dose',
     }

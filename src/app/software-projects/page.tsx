@@ -53,13 +53,13 @@ const SoftwareProjects: React.FC = () => {
     const list = projects.map((project, index) => {
         switch (project.id) {
             case 'portfolio':
-                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { console.log('lol'); setIsPortfolioImageOpen(true)}}>{`${project.title}`}</li> 
+                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => {const isOpen = isPortfolioImageOpen; setIsPortfolioImageOpen(!isOpen)}}>{`${project.title}`}</li> 
             case 'flow_scraper':
-                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => setIsWebScraperImageOpen(true)}>{`${project.title}`}</li>
+                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => {const isOpen = isWebScraperImageOpen; setIsWebScraperImageOpen(!isOpen)} }>{`${project.title}`}</li>
             case 'svisualize':
-                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => setIsSvisualizeImageOpen(true)}>{`${project.title}`}</li>
+                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => {const isOpen = isSvisualizeImageOpen; setIsSvisualizeImageOpen(!isOpen)}}>{`${project.title}`}</li>
             case 'daily_dose':
-                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => setIsDailyDoseImageOpen(true)}>{`${project.title}`}</li>
+                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => {const isOpen = isPortfolioImageOpen; setIsDailyDoseImageOpen(!isOpen)}}>{`${project.title}`}</li>
         }
     });
 
