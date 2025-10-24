@@ -7,10 +7,10 @@ interface ImageModalProps {
     setIsModalOpen: Function;
     isModalOpen: boolean;
     extraStyling: string;
-    handleOpenText: Function;
+    handleTextToggle: Function;
 }
 
-const ImageModal: React.FC<ImageModalProps> = ({project, setIsModalOpen, isModalOpen, extraStyling, handleOpenText}) => {
+const ImageModal: React.FC<ImageModalProps> = ({project, setIsModalOpen, isModalOpen, extraStyling, handleTextToggle}) => {
     const [imageIndex, setImageIndex] = useState(0);
 
     const handleClose = () => {
@@ -40,13 +40,12 @@ const ImageModal: React.FC<ImageModalProps> = ({project, setIsModalOpen, isModal
     }
 
     const renderImages = () => {
-        
         return project.imageSources[0] !== undefined ? <Image src={project.imageSources[imageIndex]} alt="left" /> : null
     }
     const renderModal = () => {
         const modal = isModalOpen ? <div className={`image-modal ${extraStyling}`}>
             <div className="image-modal-actions">
-                <div className="image-modal-button" onClick={() => handleOpenText()}>(more info...)</div>
+                <div className="image-modal-button" onClick={() => handleTextToggle()}>(more info...)</div>
                 <div className="image-modal-button" onClick={handleClose}>(close)</div>
             </div>
             <div className="image-container" onClick={handleNextImage}>
@@ -58,7 +57,7 @@ const ImageModal: React.FC<ImageModalProps> = ({project, setIsModalOpen, isModal
                 {renderImages()}
                 <div className="arrow arrow-right" onClick={handleBackImage}>
                     <svg className="w-6 h-6 text-primary-red arrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
-                        <path stroke="#D22727" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"/>
+                        <path stroke="#D22727" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"/>
                     </svg>
                 </div>
                 
