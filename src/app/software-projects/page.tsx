@@ -55,7 +55,7 @@ const SoftwareProjects: React.FC = () => {
             if (modal.type === project) {
                 modal.setter('z-100');
             } else {
-                modal.setter(null);
+                modal.setter('');
             }
         });
     }
