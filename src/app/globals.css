@@ -57,7 +57,7 @@ body {
 .sidemenu-item-active {
   color: var(--primary-text);
   padding-bottom: 1.25rem;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 /* whole home page styling */
@@ -149,11 +149,11 @@ body {
 }
 
 .software-projects-list-item {
-  /* font-weight: 500;
-  font-style: normal;
+  /* font-weight: 500; */
+  /* font-style: normal; */
   font-size: xx-large;
-  max-width: 60%;
-  min-height: 60%;  */
+  /* max-width: 60%; */
+  /* min-height: 60%;  */
   /* color: var(--text-dark); */
 }
 
@@ -171,7 +171,7 @@ body {
   min-width: 50%;
   max-width: 50%;
   min-height: 50%;
-  border: 0.05em solid var(--primary-text); 
+  border: 0.02em solid var(--primary-text); 
   display: flex;
   flex-direction: column;
   background-color: var(--background);
@@ -230,7 +230,7 @@ body {
   min-width: 50%;
   max-width: 50%;
   min-height: 100%;
-  border: 0.05em solid var(--primary-text); 
+  border: 0.02em solid var(--primary-text); 
   display: flex;
   flex-direction: column;
   background-color: var(--background);
