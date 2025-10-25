@@ -1,5 +1,8 @@
 import portfolioGif from '@/../public/software-projects/portfolio.gif';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+import svisualizeUpdate from '@/../public/software-projects/svisualize_update.gif';
+import svisualizePhoto from '@/../public/software-projects/svisualize.png';
+
 import { StaticImageData } from 'next/image';
 
 export interface Project {
@@ -75,21 +78,6 @@ export const projects:Project[] = [
     //     }],
     // },
     {
-        title: "What's The Flow Web Scraper",
-        year: '2024',
-        description: [
-            "What's the Flow Web Scraper was part of an overarching idea to build a mobile River Flow Tracking App for Raft Guides. It was built primarily as a foray into the Golang programming language.", 
-            "I quite enjoyed Go's error handling and type handling. I found the language to be robust, clean, and I found it refreshing to be able to avoid compiling errors before they happened (looking at you, Typescript). In comparison to the two languages I had extensive experience in (Java, Javascript/Typescript), I found go to be the lovely in-between. Go's package management is reminiscent to Java but isn't as locked into Object Oriented Programming and was perfect for a small project like this. And while Typescript is also statically typed, I find that the Typescript/Javascript un-opinionated workflow is at times, a detriment when starting a small project. Overall, this experience helped me gain better language evaluation skills and understanding of project requirements.",
-            "However, if I were to do the project again, with the better understanding I have of the Go, I would organize the project in a way that aligns with the Go intentions."
-        ],
-        githubLink: 'https://github.com/krisfragata/flow-scraper-bridge/tree/main',
-        imageSources: [],
-        plans: "Currently, there is no plan to continue the What's the Flow mobile application but perhaps this application can be leveraged in other ways.",
-        figma: 'NA',
-        otherLinks: [],
-        id: 'flow_scraper',
-    },
-    {
         title: 'Svisualize',
         year: '2023',
         description: [
@@ -100,7 +88,7 @@ export const projects:Project[] = [
             "I've linked the landing page on the links section to the left (or below for mobile)."
         ],
         githubLink: 'NA',
-        imageSources: [],
+        imageSources: [svisualizeUpdate, svisualizePhoto],
         plans: "There are currently no plans to expand on Svisualize, but future implementors are welcome!",
         figma: 'NA',
         otherLinks: [{
@@ -109,6 +97,21 @@ export const projects:Project[] = [
         }],
         id: 'svisualize',
     }, 
+    //  {
+    //     title: "What's The Flow Web Scraper",
+    //     year: '2024',
+    //     description: [
+    //         "What's the Flow Web Scraper was part of an overarching idea to build a mobile River Flow Tracking App for Raft Guides. It was built primarily as a foray into the Golang programming language.", 
+    //         "I quite enjoyed Go's error handling and type handling. I found the language to be robust, clean, and I found it refreshing to be able to avoid compiling errors before they happened (looking at you, Typescript). In comparison to the two languages I had extensive experience in (Java, Javascript/Typescript), I found go to be the lovely in-between. Go's package management is reminiscent to Java but isn't as locked into Object Oriented Programming and was perfect for a small project like this. And while Typescript is also statically typed, I find that the Typescript/Javascript un-opinionated workflow is at times, a detriment when starting a small project. Overall, this experience helped me gain better language evaluation skills and understanding of project requirements.",
+    //         "However, if I were to do the project again, with the better understanding I have of the Go, I would organize the project in a way that aligns with the Go intentions."
+    //     ],
+    //     githubLink: 'https://github.com/krisfragata/flow-scraper-bridge/tree/main',
+    //     imageSources: [],
+    //     plans: "Currently, there is no plan to continue the What's the Flow mobile application but perhaps this application can be leveraged in other ways.",
+    //     figma: 'NA',
+    //     otherLinks: [],
+    //     id: 'flow_scraper',
+    // },
     {
         title: 'Daily Dose',
         year: '2020',
