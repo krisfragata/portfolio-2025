@@ -49,19 +49,23 @@ const ImageModal: React.FC<ImageModalProps> = ({project, setIsModalOpen, isModal
                 <div className="image-modal-button" onClick={handleClose}>(close)</div>
             </div>
             <div className="image-container" onClick={handleNextImage}>
-                <div className="arrow arrow-left">
+                {/* only show arrows if there is more than one image */}
+                {project.imageSources.length > 1 && <div className="arrow arrow-left">
                     <svg className="w-6 h-6 text-primary arrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
                         <path stroke="#D22727" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"/>
                     </svg>
-                </div>
+                </div>}
+                <div className="software-project-image">
                 {renderImages()}
-                <div className="arrow arrow-right" onClick={handleBackImage}>
+                </div>
+                {/* only show arrows if there is more than one image */}
+                {project.imageSources.length > 1 && <div className="arrow arrow-right" onClick={handleBackImage}>
                     <svg className="w-6 h-6 text-primary-red arrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
                         <path stroke="#D22727" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"/>
                     </svg>
-                </div>
-                
+                </div>}
             </div>
+            <div className="images-index">{`${imageIndex + 1}/${project.imageSources.length}`}</div>
         </div> : null
         return modal;
     }
