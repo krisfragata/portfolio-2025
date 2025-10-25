@@ -19,9 +19,15 @@ const SoftwareProjects: React.FC = () => {
     const [isDailyDoseTextOpen, setIsDailyDoseTextOpen] = useState(false);
 
     // tracks state of info-modal z-indices
-    const [portfolioTextZIndez, setPortfolioTextZIndex] = useState<string>('');
+    const [portfolioTextZIndex, setPortfolioTextZIndex] = useState<string>('');
+    const [webScraperTextZIndex, setWebScraperTextZIndex] = useState<string>('');
+    const [svisualizeTextZIndex, setSvisualizeTextZIndex] = useState<string>('');
+    const [dailyDoseTextZIndex, setDailyDoseTextZIndex] = useState<string>('');
+
+    // tracks state of image modal z-indices
+    const [portfolioZIndex, setPortfolioZIndex] = useState<string>('');
     const [webScraperZIndex, setWebScraperZIndex] = useState<string>('');
-    const [sviualizeZIndex, setSvisualizeZIndex] = useState<string>('');
+    const [svisualizeZIndex, setSvisualizeZIndex] = useState<string>('');
     const [dailyDoseZIndex, setDailyDoseZIndex] = useState<string>('');
 
     interface ModalSetter {
@@ -29,6 +35,10 @@ const SoftwareProjects: React.FC = () => {
         setter: Function,
     }
 
+    /**
+     * @description loops thorugh info modals and sets appropriate z index
+     * @param project 
+     */
     const sendInfoToFront = (project: string) => {
         // array holding all info-modal state setters
         const modalSetters: ModalSetter[] = [
@@ -38,15 +48,15 @@ const SoftwareProjects: React.FC = () => {
             },
             {
                 type: 'flow_scraper',
-                setter: setWebScraperZIndex,
+                setter: setWebScraperTextZIndex,
             },
             {
                 type: 'svisualize',
-                setter: setSvisualizeZIndex,
+                setter: setSvisualizeTextZIndex,
             },
             {
                 type: 'daily_dose',
-                setter: setDailyDoseZIndex,
+                setter: setDailyDoseTextZIndex,
             }
         ];
 
@@ -60,17 +70,50 @@ const SoftwareProjects: React.FC = () => {
         });
     }
 
+    /**
+     * @description loops through image modals and sets appropriate z index
+     * @param project describing name of project
+     */
+    const sendImageToFront = (project: string) => {
+        const modalSetters: ModalSetter[] = [
+            {
+                type: 'portfolio',
+                setter: setPortfolioZIndex
+            },
+            {
+                type: 'flow_scraper',
+                setter: setWebScraperZIndex
+            }, 
+            {
+                type: 'svisualize',
+                setter: setSvisualizeZIndex
+            },
+            {
+                type: 'daily_dose',
+                setter: setDailyDoseZIndex
+            }
+        ]
+
+        modalSetters.forEach((modal) => {
+            if (modal.type === project) {
+                modal.setter('z-100');
+            } else {
+                modal.setter('');
+            }
+        })
+    }
+
     const renderImageModals = () => {
         return projects.map(project => {
             switch (project.id) {
                 case 'portfolio':
-                    return <ImageModal project={project} setIsModalOpen={setIsPortfolioImageOpen} isModalOpen={isPortfolioImageOpen} key={project.id} extraStyling={``} handleTextToggle={() => { sendInfoToFront('portfolio'); const isTextOpen = isPortfolioTextOpen; setIsPortfolioTextOpen(!isTextOpen)}}/>
+                    return <ImageModal project={project} setIsModalOpen={setIsPortfolioImageOpen} isModalOpen={isPortfolioImageOpen} key={project.id} extraStyling={`${portfolioZIndex}`} handleTextToggle={() => { sendInfoToFront('portfolio'); const isTextOpen = isPortfolioTextOpen; setIsPortfolioTextOpen(!isTextOpen)}}/>
                 case 'flow_scraper':
-                    return <ImageModal project={project} setIsModalOpen={setIsWebScraperImageOpen} isModalOpen={isWebScraperImageOpen} key={project.id} extraStyling={`mb-10`}  handleTextToggle={() => { sendInfoToFront('flow_scraper'); const isTextOpen = isWebScraperTextOpen; setIsWebScraperTextOpen(!isTextOpen)}}/>
+                    return <ImageModal project={project} setIsModalOpen={setIsWebScraperImageOpen} isModalOpen={isWebScraperImageOpen} key={project.id} extraStyling={`${webScraperZIndex} mb-10`}  handleTextToggle={() => { sendInfoToFront('flow_scraper'); const isTextOpen = isWebScraperTextOpen; setIsWebScraperTextOpen(!isTextOpen)}}/>
                 case 'svisualize':
-                    return <ImageModal project={project} setIsModalOpen={setIsSvisualizeImageOpen} isModalOpen={isSvisualizeImageOpen} key={project.id} extraStyling={`mb-30`} handleTextToggle={() => { sendInfoToFront('svisualize'); const isTextOpen = isSvisualizeTextOpen; setIsSvisualizeTextOpen(!isTextOpen)}}/>
+                    return <ImageModal project={project} setIsModalOpen={setIsSvisualizeImageOpen} isModalOpen={isSvisualizeImageOpen} key={project.id} extraStyling={`${svisualizeZIndex} mb-30`} handleTextToggle={() => { sendInfoToFront('svisualize'); const isTextOpen = isSvisualizeTextOpen; setIsSvisualizeTextOpen(!isTextOpen)}}/>
                 case 'daily_dose':
-                    return <ImageModal project={project} setIsModalOpen={setIsDailyDoseImageOpen} isModalOpen={isDailyDoseImageOpen} key={project.id} extraStyling={``} handleTextToggle={() => { sendInfoToFront('daily_dose'); const isTextOpen = isDailyDoseTextOpen; setIsDailyDoseTextOpen(!isTextOpen)}}/>
+                    return <ImageModal project={project} setIsModalOpen={setIsDailyDoseImageOpen} isModalOpen={isDailyDoseImageOpen} key={project.id} extraStyling={`${dailyDoseZIndex}`} handleTextToggle={() => { sendInfoToFront('daily_dose'); const isTextOpen = isDailyDoseTextOpen; setIsDailyDoseTextOpen(!isTextOpen)}}/>
             }
         })
     }
@@ -79,13 +122,13 @@ const SoftwareProjects: React.FC = () => {
         return projects.map(project => {
             switch (project.id) {
                 case 'portfolio':
-                    return <MoreInfoModal project={project} setIsModalOpen={setIsPortfolioTextOpen} isModalOpen={isPortfolioTextOpen} key={project.id} extraStyling={`${portfolioTextZIndez}`}/>
+                    return <MoreInfoModal project={project} setIsModalOpen={setIsPortfolioTextOpen} isModalOpen={isPortfolioTextOpen} key={project.id} extraStyling={`${portfolioTextZIndex}`}/>
                 case 'flow_scraper':
-                    return <MoreInfoModal project={project} setIsModalOpen={setIsWebScraperTextOpen} isModalOpen={isWebScraperTextOpen} key={project.id} extraStyling={`${webScraperZIndex}`} />
+                    return <MoreInfoModal project={project} setIsModalOpen={setIsWebScraperTextOpen} isModalOpen={isWebScraperTextOpen} key={project.id} extraStyling={`${webScraperTextZIndex}`} />
                 case 'svisualize':
-                    return <MoreInfoModal project={project} setIsModalOpen={setIsSvisualizeTextOpen} isModalOpen={isSvisualizeTextOpen} key={project.id} extraStyling={`${setSvisualizeZIndex}`}/>
+                    return <MoreInfoModal project={project} setIsModalOpen={setIsSvisualizeTextOpen} isModalOpen={isSvisualizeTextOpen} key={project.id} extraStyling={`${svisualizeTextZIndex}`}/>
                 case 'daily_dose':
-                    return <MoreInfoModal project={project} setIsModalOpen={setIsDailyDoseTextOpen} isModalOpen={isDailyDoseTextOpen} key={project.id} extraStyling={`${setSvisualizeZIndex}`}/>
+                    return <MoreInfoModal project={project} setIsModalOpen={setIsDailyDoseTextOpen} isModalOpen={isDailyDoseTextOpen} key={project.id} extraStyling={`${dailyDoseTextZIndex}`}/>
             }
         })
     }
@@ -95,13 +138,13 @@ const SoftwareProjects: React.FC = () => {
     const list = projects.map((project, index) => {
         switch (project.id) {
             case 'portfolio':
-                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => {const isOpen = isPortfolioImageOpen; setIsPortfolioImageOpen(!isOpen)}}>{`${project.title}`}</li> 
+                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { sendImageToFront('portfolio'); const isOpen = isPortfolioImageOpen; setIsPortfolioImageOpen(!isOpen)}}>{`${project.title}`}</li> 
             case 'flow_scraper':
-                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => {const isOpen = isWebScraperImageOpen; setIsWebScraperImageOpen(!isOpen)} }>{`${project.title}`}</li>
+                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { sendImageToFront('flow_scraper'); const isOpen = isWebScraperImageOpen; setIsWebScraperImageOpen(!isOpen)} }>{`${project.title}`}</li>
             case 'svisualize':
-                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => {const isOpen = isSvisualizeImageOpen; setIsSvisualizeImageOpen(!isOpen)}}>{`${project.title}`}</li>
+                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { sendImageToFront('svisualize'); const isOpen = isSvisualizeImageOpen; setIsSvisualizeImageOpen(!isOpen)}}>{`${project.title}`}</li>
             case 'daily_dose':
-                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => {const isOpen = isPortfolioImageOpen; setIsDailyDoseImageOpen(!isOpen)}}>{`${project.title}`}</li>
+                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { sendImageToFront('daily_dose'); const isOpen = isPortfolioImageOpen; setIsDailyDoseImageOpen(!isOpen)}}>{`${project.title}`}</li>
         }
     });
 
