@@ -51,7 +51,7 @@ const ImageModal: React.FC<ImageModalProps> = ({project, setIsModalOpen, isModal
             <div className="image-container" onClick={handleNextImage}>
                 <div className="arrow arrow-left">
                     <svg className="w-6 h-6 text-primary arrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
-                        <path stroke="#D22727" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"/>
+                        <path stroke="#D22727" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"/>
                     </svg>
                 </div>
                 {renderImages()}
