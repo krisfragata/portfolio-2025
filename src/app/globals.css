@@ -160,7 +160,7 @@ body {
 .software-projects-list-item:hover {
   cursor: pointer;
   color: var(--primary-text);
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 /* image modal */
