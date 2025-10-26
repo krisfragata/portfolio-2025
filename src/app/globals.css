@@ -109,6 +109,8 @@ body {
   max-width: 60%;
   min-height: 60%;
   order: 2;
+  /* color: var(--text-dark); */
+ 
 }
 
 .left-footer{
