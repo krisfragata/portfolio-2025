@@ -1,8 +1,22 @@
 'use client'
-import React, { MouseEvent, MouseEventHandler, useRef, useState } from "react";
-import { projects } from './project-list';
+import React, { MouseEvent, MouseEventHandler, useEffect, useRef, useState } from "react";
+import { Project, projects } from './project-list';
 import ImageModal from "../../components/ImageModal";
 import MoreInfoModal from "@/components/MoreInfoModal";
+
+interface ProjectControlData {
+    project: Project;
+    imageModalState: boolean;
+    imageModalSetter: React.Dispatch<React.SetStateAction<boolean>>;
+    infoModalState: boolean;
+    infoModalSetter: React.Dispatch<React.SetStateAction<boolean>>;
+    imageModalZIndex: string;
+    imageZIndexSetter: React.Dispatch<React.SetStateAction<string>>;
+    infoModalZIndex: string;
+    infoZIndexSetter: React.Dispatch<React.SetStateAction<string>>;
+    id: string;
+    extraImageStyling: string;
+}
 
 const SoftwareProjects: React.FC = () => {
     // track the state of each project?
@@ -35,37 +49,73 @@ const SoftwareProjects: React.FC = () => {
         setter: Function,
     }
 
+    useEffect(() => {
+    },[]);
+
+    /**
+     * @description tracks all states and setters of project
+     */
+    const projectControlData: ProjectControlData[] = projects.map((project) => {
+            switch (project.id) {
+                case 'portfolio':
+                    return { 
+                        id: project.id,
+                        project: project,
+                        imageModalState: isPortfolioImageOpen,
+                        imageModalSetter: setIsPortfolioImageOpen,
+                        infoModalState: isPortfolioTextOpen,
+                        infoModalSetter: setIsPortfolioTextOpen,
+                        infoModalZIndex: portfolioTextZIndex,
+                        infoZIndexSetter: setPortfolioTextZIndex,
+                        imageModalZIndex: portfolioZIndex,
+                        imageZIndexSetter: setPortfolioZIndex,
+                        extraImageStyling: '',
+                    }
+                case 'svisualize':
+                   return { 
+                        id: project.id,
+                        project: project,
+                        imageModalState: isSvisualizeImageOpen,
+                        imageModalSetter: setIsSvisualizeImageOpen,
+                        infoModalState: isSvisualizeTextOpen,
+                        infoModalSetter: setIsSvisualizeTextOpen,
+                        infoModalZIndex: svisualizeTextZIndex,
+                        infoZIndexSetter: setSvisualizeTextZIndex,
+                        imageModalZIndex: svisualizeZIndex,
+                        imageZIndexSetter: setSvisualizeZIndex,
+                        extraImageStyling: 'mb-10',
+                    } 
+                case 'daily_dose':
+                    return {
+                        id: project.id,
+                        project: project,
+                        imageModalState: isDailyDoseImageOpen,
+                        imageModalSetter: setIsDailyDoseImageOpen,
+                        infoModalState: isDailyDoseTextOpen,
+                        infoModalSetter: setIsDailyDoseTextOpen,
+                        infoModalZIndex: dailyDoseTextZIndex,
+                        infoZIndexSetter: setDailyDoseTextZIndex,
+                        imageModalZIndex: dailyDoseZIndex,
+                        imageZIndexSetter: setDailyDoseZIndex,
+                        extraImageStyling: 'mb-15',
+                    }
+                default:
+                    return undefined;
+                }
+        }).filter((p) => p !== undefined);
+    
+
     /**
      * @description loops thorugh info modals and sets appropriate z index
      * @param project 
      */
     const sendInfoToFront = (project: string) => {
-        // array holding all info-modal state setters
-        const modalSetters: ModalSetter[] = [
-            {
-                type: 'portfolio',
-                setter: setPortfolioTextZIndex,
-            },
-            {
-                type: 'flow_scraper',
-                setter: setWebScraperTextZIndex,
-            },
-            {
-                type: 'svisualize',
-                setter: setSvisualizeTextZIndex,
-            },
-            {
-                type: 'daily_dose',
-                setter: setDailyDoseTextZIndex,
-            }
-        ];
-
-        // method that loops through modalSetters and ensures that passed in project is sent to front and all others are null.
-        modalSetters.forEach((modal) => {
-            if (modal.type === project) {
-                modal.setter('z-100');
+        // loops through projectControlData and ensures that passed in project is sent to front and all others are null.
+        projectControlData.forEach((controlData) => {
+            if (controlData.id === project) {
+                controlData.infoZIndexSetter('z-100');
             } else {
-                modal.setter('');
+               controlData.infoZIndexSetter('');
             }
         });
     }
@@ -75,78 +125,69 @@ const SoftwareProjects: React.FC = () => {
      * @param project describing name of project
      */
     const sendImageToFront = (project: string) => {
-        const modalSetters: ModalSetter[] = [
-            {
-                type: 'portfolio',
-                setter: setPortfolioZIndex
-            },
-            {
-                type: 'flow_scraper',
-                setter: setWebScraperZIndex
-            }, 
-            {
-                type: 'svisualize',
-                setter: setSvisualizeZIndex
-            },
-            {
-                type: 'daily_dose',
-                setter: setDailyDoseZIndex
-            }
-        ]
-
-        modalSetters.forEach((modal) => {
-            if (modal.type === project) {
-                modal.setter('z-100');
+        projectControlData.forEach((controlData) => {
+            if (controlData.id === project) {
+                controlData.imageZIndexSetter('z-100');
             } else {
-                modal.setter('');
+                controlData.imageZIndexSetter('');
             }
         })
     }
 
     const renderImageModals = () => {
-        return projects.map(project => {
-            switch (project.id) {
-                case 'portfolio':
-                    return <ImageModal project={project} setIsModalOpen={setIsPortfolioImageOpen} isModalOpen={isPortfolioImageOpen} key={project.id} extraStyling={`${portfolioZIndex}`} handleTextToggle={() => { sendInfoToFront('portfolio'); const isTextOpen = isPortfolioTextOpen; setIsPortfolioTextOpen(!isTextOpen)}}/>
-                case 'flow_scraper':
-                    return <ImageModal project={project} setIsModalOpen={setIsWebScraperImageOpen} isModalOpen={isWebScraperImageOpen} key={project.id} extraStyling={`${webScraperZIndex} mb-10`}  handleTextToggle={() => { sendInfoToFront('flow_scraper'); const isTextOpen = isWebScraperTextOpen; setIsWebScraperTextOpen(!isTextOpen)}}/>
-                case 'svisualize':
-                    return <ImageModal project={project} setIsModalOpen={setIsSvisualizeImageOpen} isModalOpen={isSvisualizeImageOpen} key={project.id} extraStyling={`${svisualizeZIndex} mb-30`} handleTextToggle={() => { sendInfoToFront('svisualize'); const isTextOpen = isSvisualizeTextOpen; setIsSvisualizeTextOpen(!isTextOpen)}}/>
-                case 'daily_dose':
-                    return <ImageModal project={project} setIsModalOpen={setIsDailyDoseImageOpen} isModalOpen={isDailyDoseImageOpen} key={project.id} extraStyling={`${dailyDoseZIndex}`} handleTextToggle={() => { sendInfoToFront('daily_dose'); const isTextOpen = isDailyDoseTextOpen; setIsDailyDoseTextOpen(!isTextOpen)}}/>
-            }
+        return projectControlData.map(controlData => {
+            return <ImageModal 
+                project={controlData.project}
+                setIsModalOpen={controlData.imageModalSetter}
+                isModalOpen={controlData.imageModalState}
+                key={controlData.id}
+                extraStyling={`${controlData.extraImageStyling} ${controlData.imageModalZIndex}`}
+                handleTextToggle={() => {
+                    sendInfoToFront(controlData.project.id);
+                    const isTextOpen = controlData.infoModalState;
+                    controlData.infoModalSetter(!isTextOpen);
+                }}
+            />
         })
     }
 
     const renderInfoModals = () => {
-        return projects.map(project => {
-            switch (project.id) {
-                case 'portfolio':
-                    return <MoreInfoModal project={project} setIsModalOpen={setIsPortfolioTextOpen} isModalOpen={isPortfolioTextOpen} key={project.id} extraStyling={`${portfolioTextZIndex}`}/>
-                case 'flow_scraper':
-                    return <MoreInfoModal project={project} setIsModalOpen={setIsWebScraperTextOpen} isModalOpen={isWebScraperTextOpen} key={project.id} extraStyling={`${webScraperTextZIndex}`} />
-                case 'svisualize':
-                    return <MoreInfoModal project={project} setIsModalOpen={setIsSvisualizeTextOpen} isModalOpen={isSvisualizeTextOpen} key={project.id} extraStyling={`${svisualizeTextZIndex}`}/>
-                case 'daily_dose':
-                    return <MoreInfoModal project={project} setIsModalOpen={setIsDailyDoseTextOpen} isModalOpen={isDailyDoseTextOpen} key={project.id} extraStyling={`${dailyDoseTextZIndex}`}/>
-            }
+        return projectControlData.map(controlData => {
+            return <MoreInfoModal 
+                project={controlData.project}
+                setIsModalOpen={controlData.infoModalSetter}
+                isModalOpen={controlData.infoModalState}
+                key={controlData.id}
+                extraStyling={`${controlData.infoModalZIndex}`}
+            />
         })
     }
 
+    const list = projectControlData.map((controlData, index) => {
+        return <li 
+            className="software-projects-list-item"
+            key={index}
+            value={controlData.id}
+            onClick={() => {
+                sendImageToFront(controlData.id);
+                const isOpen = controlData.imageModalState;
+                controlData.imageModalSetter(!isOpen);
+            }}
+        ><span className="text-primary">{`0${index} - `}</span>{`${controlData.project.title}`}</li>
+    })
 
-    
-    const list = projects.map((project, index) => {
-        switch (project.id) {
-            case 'portfolio':
-                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { sendImageToFront('portfolio'); const isOpen = isPortfolioImageOpen; setIsPortfolioImageOpen(!isOpen)}}>{`${project.title}`}</li> 
-            case 'flow_scraper':
-                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { sendImageToFront('flow_scraper'); const isOpen = isWebScraperImageOpen; setIsWebScraperImageOpen(!isOpen)} }>{`${project.title}`}</li>
-            case 'svisualize':
-                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { sendImageToFront('svisualize'); const isOpen = isSvisualizeImageOpen; setIsSvisualizeImageOpen(!isOpen)}}>{`${project.title}`}</li>
-            case 'daily_dose':
-                return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { sendImageToFront('daily_dose'); const isOpen = isPortfolioImageOpen; setIsDailyDoseImageOpen(!isOpen)}}>{`${project.title}`}</li>
-        }
-    });
+    // const list = projects.map((project, index) => {
+    //     switch (project.id) {
+    //         case 'portfolio':
+    //             return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { sendImageToFront('portfolio'); const isOpen = isPortfolioImageOpen; setIsPortfolioImageOpen(!isOpen)}}><span className="text-primary">{`01. `}</span>{`${project.title}`}</li> 
+    //         case 'flow_scraper':
+    //             return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { sendImageToFront('flow_scraper'); const isOpen = isWebScraperImageOpen; setIsWebScraperImageOpen(!isOpen)} }>{`02. ${project.title}`}</li>
+    //         case 'svisualize':
+    //             return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { sendImageToFront('svisualize'); const isOpen = isSvisualizeImageOpen; setIsSvisualizeImageOpen(!isOpen)}}>{`02. ${project.title}`}</li>
+    //         case 'daily_dose':
+    //             return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { sendImageToFront('daily_dose'); const isOpen = isPortfolioImageOpen; setIsDailyDoseImageOpen(!isOpen)}}>{`03. ${project.title}`}</li>
+    //     }
+    // });
 
 
 

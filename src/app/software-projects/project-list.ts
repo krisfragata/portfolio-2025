@@ -1,9 +1,13 @@
 import portfolioGif from '@/../public/software-projects/portfolio.gif';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+// svisualize image imports
 import svisualizeUpdate from '@/../public/software-projects/svisualize_update.gif';
 import svisualizePhoto from '@/../public/software-projects/svisualize.png';
+// daily dose image imports
+import dailyDose1 from '@/../public/software-projects/daily_dose1.gif';
+import dailyDose3 from '@/../public/software-projects/daily_dose3.gif'
+import dailyDose4 from '@/../public/software-projects/daily_dose4.gif'
 
-import { StaticImageData } from 'next/image';
 
 export interface Project {
     title: string;
@@ -116,12 +120,12 @@ export const projects:Project[] = [
         title: 'Daily Dose',
         year: '2020',
         description: [
-            "<<Daily Dose is a digital repository of Sol Lewitt's Wall Drawings, framed as a tool to form creative habits>> - Andriana Levytsky, Graphic Designer.",
-            "I developed the HTML5 Canvas functionality in Daily Dose. I worked with graphic designer, Andriana Levytsky, to create the interactive gallery.",
-            "This was my first collaborative coding project, and the project that birthed my love for programming. I found HTML5 Canvas to be finnicky but rewarding. With the right logic and math one can so many fun things. This project was made very early on in my programming journey so if I were to do it again, I would do a better job of documenting and structuring the code to be more readable and maintainable. Lastly, this project also taught me the necessary skills to communicate and translate the needs of a designer into the desired output."
+            "<<Daily Dose is a digital repository of Sol LeWitt's Wall Drawings, framed as a tool to form creative habits>> - Andriana Levytsky, Graphic Designer.",
+            "For Daily Dose, I worked with graphic designer, Andriana Levytsky, to create the interactive gallery seen in the digital repository. In order to recreate Sol LeWitt's interactive wall drawings, I made use of HTML5 Canvas and a bit of math.",
+            "This was my first collaborative coding project, and the project that birthed my love for programming. I found HTML5 Canvas to be finnicky but rewarding. With the right logic and math one can so many fun things. This project was made very early on in my programming journey so if I were to do it again, I would do a better job of documenting and structuring the code to be more readable and maintainable. This project also taught me the necessary skills to communicate and translate the needs of a designer into the desired output."
         ],
         githubLink: 'https://github.com/andrianalevytsky/dailydose',
-        imageSources: [],
+        imageSources: [dailyDose1, dailyDose3, dailyDose4],
         plans: "There are currently no plans to expand on the Wall Drawings but this is a project I would gladly expand on in the future.",
         figma: 'NA',
         otherLinks: [{
