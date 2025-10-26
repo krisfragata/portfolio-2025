@@ -1,5 +1,5 @@
 'use client'
-import React, { MouseEvent, MouseEventHandler, useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { Project, projects } from './project-list';
 import ImageModal from "../../components/ImageModal";
 import MoreInfoModal from "@/components/MoreInfoModal";
@@ -48,9 +48,6 @@ const SoftwareProjects: React.FC = () => {
         type: String,
         setter: Function,
     }
-
-    useEffect(() => {
-    },[]);
 
     /**
      * @description tracks all states and setters of project
