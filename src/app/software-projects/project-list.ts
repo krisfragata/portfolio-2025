@@ -121,8 +121,9 @@ export const projects:Project[] = [
         year: '2020',
         description: [
             "<<Daily Dose is a digital repository of Sol LeWitt's Wall Drawings, framed as a tool to form creative habits>> - Andriana Levytsky, Graphic Designer.",
-            "For Daily Dose, I worked with graphic designer, Andriana Levytsky, to create the interactive gallery seen in the digital repository. In order to recreate Sol LeWitt's interactive wall drawings, I made use of HTML5 Canvas and a bit of math.",
-            "This was my first collaborative coding project, and the project that birthed my love for programming. I found HTML5 Canvas to be finnicky but rewarding. With the right logic and math one can so many fun things. This project was made very early on in my programming journey so if I were to do it again, I would do a better job of documenting and structuring the code to be more readable and maintainable. This project also taught me the necessary skills to communicate and translate the needs of a designer into the desired output."
+            "For Daily Dose, I worked with graphic designer, Andriana Levytsky, to create an interactive gallery using HTML5 Canvas and a bit of math.",
+            "This was my first collaborative coding project, and the project that birthed my love for programming. I found HTML5 Canvas to be finnicky but rewarding. With the right logic and math one can so many fun things.",
+            "This project was made very early on in my programming journey so if I were to do it again, I would do a better job of documenting and structuring the code to be more readable and maintainable. This project also taught me the necessary skills to communicate and translate the needs of a designer into the desired output."
         ],
         githubLink: 'https://github.com/andrianalevytsky/dailydose',
         imageSources: [dailyDose1, dailyDose3, dailyDose4],
