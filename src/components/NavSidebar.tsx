@@ -1,3 +1,6 @@
+'use client'
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 
 interface NavSideBarProps {
@@ -5,15 +8,21 @@ interface NavSideBarProps {
 }
 
 const NavSideBar: React.FC<NavSideBarProps> = ({links}) => {
-    return (
-      <div className="sidemenu">
-        { links.map((link) => (
-            <a key={link.href} href={link.href} className="sidemenu-item">
-                {link.label}
-            </a>
-        )) }
-      </div>  
-    );
+  const pathname = usePathname();
+  const handleRouteToPage = async (href: string) => {
+  }
+
+  return (
+    <div className="sidemenu">
+      { 
+        links.map((link) => (
+          <Link key={link.href} href={link.href} className={pathname === link.href ? 'sidemenu-item-active' : 'sidemenu-item'} onClick={() => handleRouteToPage(link.href)}>
+              {link.label}
+          </Link>
+        ))
+      }
+    </div>  
+  );
 }
 
 export default NavSideBar;
