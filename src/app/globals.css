@@ -28,6 +28,8 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-krub), sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 /* nav bar styling */
@@ -38,8 +40,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  align-items: flex-end;
-  min-width: 30%;
+  align-items: end;
+  padding-left: 5rem;
+  /* max-width: 30%; */
+  min-width: fit-content;
   color: var(--text-main);
   order: 2;
   font-size: larger;
@@ -64,8 +68,9 @@ body {
 
 .home {
   display: flex;
-  margin: 7em;
+  margin: 5em;
   flex-direction: row;
+  min-width: min-content;
 }
 
 /* title styling  */
@@ -318,9 +323,18 @@ body {
 
 /* change order on small screens */
 @media (max-width: 768px) {
+  body {
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+    max-width: fit-content;
+    overflow-x: hidden;
+  }
   .home {
     flex-direction: column;
     margin: 2em;
+    max-width: 100%;
+    overflow-x: hidden;
   }
   .left-header {
     padding: 0;
@@ -337,6 +351,8 @@ body {
   .sidemenu {
     align-items: start;
     font-size: large;
+    max-width: 80%;
+    padding-left: 0rem;
   }
   .footer {
     font-size: medium;
@@ -347,7 +363,48 @@ body {
   .left-footer-small {
     visibility: visible;
   }
+
+  /* styling for software projects page */
+  .software-projects-list-item {
+    font-size: x-large;
+  }
+  .image-modal {
+    width: fit-content;
+    min-width: fit-content;
+    min-height: fit-content;
+  }
+  .info-modal {
+    min-width: fit-content;
+    max-width: 90%;
+    top: 0rem;
+    left: 0rem;
+  }
+  .info-container {
+    flex-direction: column;
+  }
+  /* description of info modal */
+  .info-right {
+    /* border: 0.05em solid var(--primary-text);    */
+    min-width: 100%;
+    max-width: 100%;
+    margin: 1.5rem;
+    margin-right: 1.5rem;
+    padding: 1rem;
+    order: 1;
+  }
+  /* title section of info modal */
+  .info-left {
+    order: 2;
+    margin-bottom: 1rem;
+  }
+  .main-links {
+    margin-bottom: 1rem;
+  }
+  .title-section {
+    margin-bottom: 1rem;
+  }
 }
+
 
 
 

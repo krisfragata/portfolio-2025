@@ -173,21 +173,6 @@ const SoftwareProjects: React.FC = () => {
         ><span className="text-primary">{`0${index} - `}</span>{`${controlData.project.title}`}</li>
     })
 
-    // const list = projects.map((project, index) => {
-    //     switch (project.id) {
-    //         case 'portfolio':
-    //             return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { sendImageToFront('portfolio'); const isOpen = isPortfolioImageOpen; setIsPortfolioImageOpen(!isOpen)}}><span className="text-primary">{`01. `}</span>{`${project.title}`}</li> 
-    //         case 'flow_scraper':
-    //             return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { sendImageToFront('flow_scraper'); const isOpen = isWebScraperImageOpen; setIsWebScraperImageOpen(!isOpen)} }>{`02. ${project.title}`}</li>
-    //         case 'svisualize':
-    //             return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { sendImageToFront('svisualize'); const isOpen = isSvisualizeImageOpen; setIsSvisualizeImageOpen(!isOpen)}}>{`02. ${project.title}`}</li>
-    //         case 'daily_dose':
-    //             return <li className="software-projects-list-item" key={index} value={project.id} onClick={() => { sendImageToFront('daily_dose'); const isOpen = isPortfolioImageOpen; setIsDailyDoseImageOpen(!isOpen)}}>{`03. ${project.title}`}</li>
-    //     }
-    // });
-
-
-
     return (
         <div className="left-main-text">
             <ol className="software-project-list">{list}</ol>
