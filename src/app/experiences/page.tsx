@@ -3,7 +3,10 @@ import React from "react";
 const Experiences: React.FC = () => {
     return (
         <div className="left-main-text">
-            The <span className="text-primary">Experiences</span> page is under progress...
+            <ul className="edu-work-icons">
+                <li className="experiences-icon">{`> EDUCATION`}</li>
+                <li className="experiences-icon">{`> WORK`}</li>
+            </ul>
         </div>
     );
 };
