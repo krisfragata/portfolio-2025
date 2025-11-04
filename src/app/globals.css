@@ -155,6 +155,8 @@ body {
   color: var(--text-highlight-dark-bg);
 }
 
+/* SOFTWARE PROJECTS PAGE STYLING */
+
 .software-projects-list-item {
   /* font-weight: 500; */
   /* font-style: normal; */
@@ -230,8 +232,6 @@ body {
   align-items: center;
   cursor: pointer;
 }
-
-
 
 .arrow-left {
   margin-right: 1rem;
@@ -310,14 +310,20 @@ body {
   color: var(--primary-text);
 }
 
-.info-description {
-  
-  /* width: 100%; */
-}
-
 .description-paragraph {
   margin-bottom: 1rem;
   margin-right: 2rem;
+}
+
+/* EXPERIENCES PAGE STYLING */
+
+.edu-work-icons {
+
+}
+
+.experiences-icon:hover {
+  cursor: pointer;
+  color: var(--primary-text);
 }
 
 
@@ -364,7 +370,7 @@ body {
     visibility: visible;
   }
 
-  /* styling for software projects page */
+  /* SOFTWARE PROJECTS PAGE STYLING */
   .software-projects-list-item {
     font-size: x-large;
   }
