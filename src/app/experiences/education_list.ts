@@ -5,7 +5,7 @@ export interface Education {
     id: string;
 }
 
-export const education:Education[] = [
+export const educationList:Education[] = [
     {
         schoolName: 'University of London',
         years: '2025 - present',

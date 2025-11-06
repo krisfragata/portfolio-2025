@@ -6,7 +6,7 @@ export interface Work {
     id: string;
 }
 
-export const work:Work[] = [
+export const works:Work[] = [
    {
     companyName: 'Associated Environmental Systems',
     years: 'May 2024 - Sep 2025',
