@@ -349,6 +349,10 @@ body {
   text-decoration: underline;
 }
 
+.experiences-title-section {
+  font-size: large;
+}
+
 /* change order on small screens */
 @media (max-width: 768px) {
   body {
@@ -408,6 +412,7 @@ body {
     left: 0rem;
   }
   .info-container {
+    display: flex;
     flex-direction: column;
   }
   /* description of info modal */
