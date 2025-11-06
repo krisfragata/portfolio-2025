@@ -326,6 +326,28 @@ body {
   color: var(--primary-text);
 }
 
+.experiences-list-item {
+  font-size: large;
+}
+
+.experiences-list-container {
+  margin-left: 1.75rem;
+}
+
+.list-numbers-container {
+  min-width: 3rem;
+  display: inline-block;
+}
+
+.more-button {
+  color: var(--primary-text);
+  margin-top: 0;
+  font-size: medium;
+}
+.more-button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
 
 /* change order on small screens */
 @media (max-width: 768px) {
