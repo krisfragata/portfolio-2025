@@ -247,12 +247,12 @@ body {
   right: 0rem;
   min-width: 50%;
   max-width: 50%;
-  min-height: 100%;
+  height: 100%;
   border: 0.02em solid var(--primary-text); 
   display: flex;
   flex-direction: column;
   background-color: var(--background);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .info-container {
@@ -277,7 +277,6 @@ body {
   max-width: 60%;
   order: 2;
   overflow-y: scroll;
-  overflow-x: hidden;
   margin-left: 1rem;
   margin-top: 1rem;
 }
@@ -312,7 +311,6 @@ body {
 
 .description-paragraph {
   margin-bottom: 1rem;
-  margin-right: 2rem;
 }
 
 /* EXPERIENCES PAGE STYLING */
@@ -344,6 +342,8 @@ body {
   margin-top: 0.5rem;
   font-size: medium;
   margin-bottom: 2rem;
+  width: fit-content;
+  height: fit-content;
 }
 .more-button:hover {
   cursor: pointer;
@@ -354,8 +354,8 @@ body {
   display: flex;
   flex-direction: column;
   font-size: large;
-  justify-content: start;
-  align-items: start;
+  width: 100%;
+  min-width: 70%;
 }
 
 .experience-info-item {
@@ -367,6 +367,7 @@ body {
   display: flex;
   flex-direction: column;
   width: fit-content;
+  overflow-y: visible;
 }
 
 /* change order on small screens */
@@ -414,7 +415,7 @@ body {
 
   /* SOFTWARE PROJECTS PAGE STYLING */
   .software-projects-list-item {
-    font-size: x-large;
+    font-size: large;
   }
   .image-modal {
     width: fit-content;
@@ -422,10 +423,11 @@ body {
     min-height: fit-content;
   }
   .info-modal {
-    min-width: fit-content;
-    max-width: 90%;
+    width: 100%;
+    max-width: 100%;
     top: 0rem;
     left: 0rem;
+    overflow-x: hidden;
   }
   .info-container {
     display: flex;
@@ -434,26 +436,24 @@ body {
   /* description of info modal */
   .info-right {
     /* border: 0.05em solid var(--primary-text);    */
-    min-width: 100%;
-    max-width: 100%;
-    margin: 1.5rem;
-    margin-right: 1.5rem;
+    max-width: 90%;
+    width: 100%;
+    margin-top: 1rem;
     padding: 1rem;
-    order: 2;
+    font-weight: 600;
   }
   .description-paragraph {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    font-size: medium;
   }
   /* title section of info modal */
   .info-left {
-    order: 1;
-    margin-bottom: 0rem;
     max-width: 100%;
-    min-width: 100%;
-    margin-left: 0;
+    width: 100%;
+    margin: 0 auto;
   }
   .main-links {
     margin-bottom: 1rem;
@@ -480,6 +480,12 @@ body {
   }
   .experiences-list-container {
     margin-left: 1.3rem;
+  }
+  .experience-modal-info-container {
+    width: 100%;
+    min-width: fit-content;
+    margin: 0 auto;
+    /* text-align: center; */
   }
 }
 
