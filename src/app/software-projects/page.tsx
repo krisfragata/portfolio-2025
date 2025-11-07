@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from "react";
-import { Project, projects } from './project-list';
+import { Project, projects } from './projects_list';
 import ImageModal from "../../components/ImageModal";
 import MoreInfoModal from "@/components/MoreInfoModal";
 
@@ -43,11 +43,6 @@ const SoftwareProjects: React.FC = () => {
     const [webScraperZIndex, setWebScraperZIndex] = useState<string>('');
     const [svisualizeZIndex, setSvisualizeZIndex] = useState<string>('');
     const [dailyDoseZIndex, setDailyDoseZIndex] = useState<string>('');
-
-    interface ModalSetter {
-        type: String,
-        setter: Function,
-    }
 
     /**
      * @description tracks all states and setters of project
