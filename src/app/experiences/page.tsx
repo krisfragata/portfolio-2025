@@ -11,6 +11,8 @@ const Experiences: React.FC = () => {
     const [isEducationModalOpen, setIsEducationModalOpen] = useState<boolean>(false);
     const [isWorkExpanded, setIsWorkExpanded] = useState<boolean>(true);
     const [isWorkModalOpen, setIsWorkModalOpen] = useState<boolean>(false);
+    const [educationModalZIndex, setEducationModalZIndex] = useState<string>('');
+    const [workModalZIndex, setWorkModalZindex] = useState<string>('');
 
     /**
      * 
@@ -22,6 +24,7 @@ const Experiences: React.FC = () => {
         <div 
             className="more-button"
             onClick={() => {
+                sendInfoToFront('edu');
                 const isOpen = isEducationModalOpen;
                 setIsEducationModalOpen(!isOpen);
             }}
@@ -51,7 +54,7 @@ const Experiences: React.FC = () => {
             educationList={educationList}
             isModalOpen={isEducationModalOpen}
             setIsModalOpen={setIsEducationModalOpen}
-            extraStyling=""
+            extraStyling={educationModalZIndex}
         />
     }
     
@@ -64,6 +67,7 @@ const Experiences: React.FC = () => {
         <div 
             className="more-button"
             onClick={() => {
+                sendInfoToFront('work');
                 const isOpen = isWorkModalOpen;
                 setIsWorkModalOpen(!isOpen);
             }}
@@ -90,8 +94,21 @@ const Experiences: React.FC = () => {
             workList={works}
             isModalOpen={isWorkModalOpen}
             setIsModalOpen={setIsWorkModalOpen}
-            extraStyling=""
+            extraStyling={workModalZIndex}
         />
+    }
+
+    /**
+     * @description loops through modals and sets appropriate z index
+     */
+    const sendInfoToFront = (modal: string) => {
+        if (modal === 'edu') {
+            setWorkModalZindex('');
+            setEducationModalZIndex('z-100');
+        } else {
+            setWorkModalZindex('z-100');
+            setEducationModalZIndex('');
+        }
     }
 
     return (
