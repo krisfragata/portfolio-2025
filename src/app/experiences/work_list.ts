@@ -34,7 +34,7 @@ export const works:Work[] = [
     position: 'Server, Bartender',
     description: [
         "I started at the resort as a back server and quickly worked my way up to server and eventually bartender at the Flame restaurant. In these roles, I focused on delivering memorable dining experiences through genuine customer service, strong communication, and deep knowledge of both the menu and the resort’s offerings.",
-        "I took pride in creating a welcome atmosphere and going above and beyond to make sure each guest left satisfied. Whether it was pairing wines, crafting cocktails, or resolving concerns on the spot, I learned how to anticipate guests’ needs and maintain a high standard of hospitality in a fast-paced environment.",
+        "I took pride in creating a welcoming atmosphere and going above and beyond to make sure each guest left satisfied. Whether it was pairing wines, crafting cocktails, or resolving concerns on the spot, I learned how to anticipate guests’ needs and maintain a high standard of hospitality in a fast-paced environment.",
     ],
     id: 'four_seasons'
    }, 
