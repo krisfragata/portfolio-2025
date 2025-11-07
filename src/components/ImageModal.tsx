@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Project } from "../app/software-projects/project-list";
+import { Project } from "../app/software-projects/projects_list";
 import Image from "next/image";
 
 interface ImageModalProps {
