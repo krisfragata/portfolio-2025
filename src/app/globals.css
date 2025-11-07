@@ -341,8 +341,9 @@ body {
 
 .more-button {
   color: var(--primary-text);
-  margin-top: 0;
+  margin-top: 0.5rem;
   font-size: medium;
+  margin-bottom: 2rem;
 }
 .more-button:hover {
   cursor: pointer;
@@ -350,7 +351,22 @@ body {
 }
 
 .experiences-title-section {
+  display: flex;
+  flex-direction: column;
   font-size: large;
+  justify-content: start;
+  align-items: start;
+}
+
+.experience-info-item {
+  display: flex;
+  font-size: large;
+}
+
+.experience-modal-info-container {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
 }
 
 /* change order on small screens */
@@ -423,18 +439,47 @@ body {
     margin: 1.5rem;
     margin-right: 1.5rem;
     padding: 1rem;
-    order: 1;
+    order: 2;
+  }
+  .description-paragraph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
   /* title section of info modal */
   .info-left {
-    order: 2;
-    margin-bottom: 1rem;
+    order: 1;
+    margin-bottom: 0rem;
+    max-width: 100%;
+    min-width: 100%;
+    margin-left: 0;
   }
   .main-links {
     margin-bottom: 1rem;
   }
   .title-section {
     margin-bottom: 1rem;
+  }
+
+  /* EXPERIENCES SECTION MOBILE STYLING */
+  .experience-info-item {
+    flex-direction: column;
+  }
+  .experiences-title-section {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .experiences-list-item {
+    font-size: medium;
+  }
+  .experiences-list-container {
+    min-width: 4rem;
+  }
+  .experiences-list-container {
+    margin-left: 1.3rem;
   }
 }
 
