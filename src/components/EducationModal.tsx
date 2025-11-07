@@ -1,5 +1,5 @@
 import { Education } from "@/app/experiences/education_list";
-import React from "react"
+import React, { JSX } from "react"
 
 interface ExperiencesModalProps {
     educationList: Education[];
@@ -18,24 +18,34 @@ const EducationModal: React.FC<ExperiencesModalProps> = ({educationList, isModal
     }
 
     /**
-     * @description handles rendering 'title' information including school name and year
+     * @description handles rendering 'title' and 'description' information including school name and year
+     * @returns {JSX[]}
      */
-    const renderTitleInfo = (edu: Education) => {
-        <div className="info-left">
-            <div className="experiences-title-section">
-                <p className="text-primary">{edu.schoolName}</p>
-                <p className="info-header">{edu.years}</p>
+    const renderEducationInfo = educationList.map((edu: Education, index) => {
+        return <div className="experience-info-item" key={index}>
+           <div className="info-left" key={index}>
+                <div className="experiences-title-section">
+                    <p className="text-primary">{edu.schoolName}</p>
+                    <p className="info-header">{edu.years}</p>
+                </div>
+            </div>  
+            <div className="info-right">
+                {
+                    <p className="description-paragraph">{edu.description}</p>
+                }
             </div>
         </div>
-    }
+    })
 
     return (
        isModalOpen ? <div className={`info-modal ${extraStyling}`}>
             <div className="image-modal-actions">
                 <div className="image-modal-button" onClick={handleClose}>(close)</div>
             </div>
-            <div>
-
+            <div className="experience-modal-info-container">
+                {
+                   renderEducationInfo
+                }
             </div>
        </div> : null
     )
