@@ -3,6 +3,7 @@ import React, { JSX, useState } from "react";
 import { Work, works } from "./work_list";
 import { Education, educationList } from "./education_list";
 import EducationModal from "@/components/EducationModal";
+import WorkModal from "@/components/WorkModal";
 
 const Experiences: React.FC = () => {
     // state trackers
@@ -66,9 +67,7 @@ const Experiences: React.FC = () => {
                 const isOpen = isWorkModalOpen;
                 setIsWorkModalOpen(!isOpen);
             }}
-        >
-            (more info)
-        </div>
+        >(more info)</div>
       </div>
     }
     /**
@@ -82,6 +81,19 @@ const Experiences: React.FC = () => {
             value={work.id}
         ><span className="text-primary list-numbers-container">{`0${index}`}</span>{`${work.companyName}`}</li>
     });
+
+    /**
+     * @returns {JSX} - education modal component
+     */
+    const renderWorkInfoModal = () => {
+        return <WorkModal 
+            workList={works}
+            isModalOpen={isWorkModalOpen}
+            setIsModalOpen={setIsWorkModalOpen}
+            extraStyling=""
+        />
+    }
+
     return (
         <div className="left-main-text">
             <ul className="edu-work-icons">
@@ -107,6 +119,7 @@ const Experiences: React.FC = () => {
                 }
             </ul>
             {renderEducationInfoModal()}
+            {renderWorkInfoModal()}
         </div>
     );
 };
