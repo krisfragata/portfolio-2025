@@ -165,7 +165,7 @@ const SoftwareProjects: React.FC = () => {
                 const isOpen = controlData.imageModalState;
                 controlData.imageModalSetter(!isOpen);
             }}
-        ><span className="text-primary">{`0${index} - `}</span>{`${controlData.project.title}`}</li>
+        ><span className="text-primary list-numbers-container">{`0${index}`}</span>{`${controlData.project.title}`}</li>
     })
 
     return (
