@@ -326,6 +326,7 @@ body {
 
 .experiences-list-item {
   font-size: large;
+  display: flex;
 }
 
 .experiences-list-container {
@@ -415,7 +416,8 @@ body {
 
   /* SOFTWARE PROJECTS PAGE STYLING */
   .software-projects-list-item {
-    font-size: large;
+    font-size: x-large;
+    display: flex;
   }
   .image-modal {
     width: fit-content;
