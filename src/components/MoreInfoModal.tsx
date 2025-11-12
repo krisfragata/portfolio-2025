@@ -33,16 +33,11 @@ const MoreInfoModal: React.FC<MoreInfoModalProps> = ({project, setIsModalOpen, i
                 {
                     project.figma == '' || project.figma == 'NA' ? <p>Figma: NA</p> : <a href={project.figma} target="_blank" className="link-item">Figma</a>
                 }
-            </div>
-            <div>
-                <p className="info-header">More Links:</p>
-                <div className="links-list">
                     {
                         project.otherLinks.map((link) => (
                             <a key={link.href} href={link.href} target="_blank" className="link-item">{`${link.label}`}</a>
                         ))
                     }
-                </div>
             </div>
         </div>
     }
