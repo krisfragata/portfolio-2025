@@ -301,11 +301,6 @@ body {
   flex-direction: column;
 }
 
-.links-list {
-  display: flex;
-  flex-direction: column;
-}
-
 .link-item {
   text-decoration: underline;
 }
@@ -467,9 +462,19 @@ body {
   }
   .main-links {
     margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
   .title-section {
     margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 
   /* EXPERIENCES SECTION MOBILE STYLING */
