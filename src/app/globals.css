@@ -203,13 +203,14 @@ body {
 }
 
 .software-project-image {
-  border: 0.02em solid var(--primary-text); 
+  /* border: 0.02em solid var(--primary-text);  */
 }
 
 .image-modal-actions {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+  margin-bottom: 0.5rem;
   width: 100%;
 }
 
