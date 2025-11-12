@@ -19,7 +19,7 @@ const Experiences: React.FC = () => {
      * @returns {JSX} - component containing education list
      */
     const renderEducationList = () => {
-      return  <div className="experiences-list-container">
+      return  <div className="experiences-list-container mb-2">
         <ul className="">{renderEducationListItems}</ul>
         <div 
             className="more-button"
@@ -29,7 +29,7 @@ const Experiences: React.FC = () => {
                 setIsEducationModalOpen(!isOpen);
             }}
         >
-            (more info)
+            (more info...)
         </div>
       </div>
     }
@@ -62,7 +62,7 @@ const Experiences: React.FC = () => {
      * @returns {JSX} - component containing work list
      */
     const renderWorkList = () => {
-        return <div className="experiences-list-container">
+        return <div className="experiences-list-container mb-15">
         <ul className="">{renderWorkListItems}</ul>
         <div 
             className="more-button"
@@ -71,7 +71,7 @@ const Experiences: React.FC = () => {
                 const isOpen = isWorkModalOpen;
                 setIsWorkModalOpen(!isOpen);
             }}
-        >(more info)</div>
+        >(more info...)</div>
       </div>
     }
     /**
@@ -120,7 +120,7 @@ const Experiences: React.FC = () => {
                         const isExpanded = isEducationExpanded;
                         setIsEducationExpanded(!isExpanded);
                     }}
-                >{`> EDUCATION`}</li>
+                >{`EDUCATION`}</li>
                 {
                     isEducationExpanded && renderEducationList()
                 }
@@ -130,7 +130,7 @@ const Experiences: React.FC = () => {
                         const isExpanded = isWorkExpanded;
                         setIsWorkExpanded(!isExpanded);
                     }}
-                >{`> WORK`}</li>
+                >{`WORK`}</li>
                 {
                     isWorkExpanded && renderWorkList()
                 }
