@@ -45,7 +45,7 @@ export const projects:Project[] = [
         year: '2025',
         description: [
             "this.Portfolio was designed from scratch with the goal of summarizing, to the best of my ability, all my most impressive work.",
-            "It went through a few iterations which can be seen on the figma link listed on the left (below for mobile). I struggled with determining how to display the multiple disciplines that I take part in; software, music, writing, photography. Ultimately, I grouped my works into 2 simple categories, software and art.",
+            "It went through a few iterations which can be seen on the figma link listed on the left (above for mobile). I struggled with determining how to display the multiple disciplines that I take part in; software, music, writing, photography. Ultimately, I grouped my works into 2 simple categories, software and art.",
             "I decided on a design that was clean but still expressed my personality both because I felt that simplicity would help drive progress towards a complete portfolio and to reduce the brain clutter that comes with taking on a multi-disciplinary portfolio.",
             "This was made with NextJS 15, typescript, React and vanilla CSS.",
             "In the links section you'll find the Jira Kanban Board I am using to organize this project (as well as other projects) and my Daily Standup Spreadsheet."
@@ -89,7 +89,7 @@ export const projects:Project[] = [
             "It was built with Typescript, Svelte, and D3.js. I enjoyed this project as Svelte was a new framework for me. Working with Svelte has allowed me to see that most Javascript frameworks share many common grounds that can applied to each other.",
             "A challenge that my team and I found was the lack of documentation for D3.js under Svelte which made implementation slow.",
             "For future implementation, I would implement a more robust and detailed commit message structure to aid in maintenance and readability. I would also choose either a more compatible framework for D3.js or a more compatible data visualization library for Svelte.",
-            "I've linked the landing page on the links section to the left (or below for mobile)."
+            "I've linked the landing page on the links section to the left (or above for mobile)."
         ],
         githubLink: 'NA',
         imageSources: [svisualizeUpdate, svisualizePhoto],
