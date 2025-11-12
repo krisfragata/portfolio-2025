@@ -12,12 +12,14 @@ interface ImageModalProps {
 
 const ImageModal: React.FC<ImageModalProps> = ({project, setIsModalOpen, isModalOpen, extraStyling, handleTextToggle}) => {
     const [imageIndex, setImageIndex] = useState(0);
+    const [isImageLoading, setIsImageLoading] = useState(true);
 
     const handleClose = () => {
         setIsModalOpen(false);
     }
 
     const handleNextImage = () => {
+        setIsImageLoading(true);
         switch(imageIndex) {
             case project.imageSources.length - 1: 
                 setImageIndex(0);
@@ -29,6 +31,7 @@ const ImageModal: React.FC<ImageModalProps> = ({project, setIsModalOpen, isModal
     }
 
     const handleBackImage = () => {
+        setIsImageLoading(true);
         switch(imageIndex) {
             case 0: 
                 setImageIndex(project.imageSources.length - 1);
@@ -40,7 +43,22 @@ const ImageModal: React.FC<ImageModalProps> = ({project, setIsModalOpen, isModal
     }
 
     const renderImages = () => {
-        return project.imageSources[0] !== undefined ? <Image src={project.imageSources[imageIndex]} alt="left" /> : null
+        if (!project.imageSources[0]) return null;
+        return (
+            <div className="software-project-image">
+                {
+                    isImageLoading && <div className="absolute inset-0 flex justify-center items-center">
+                        <div className="w-8 h-8 border-4 border-gray-300 border-t-primary-red rounded-full animate-spin"/>    
+                    </div>
+                }
+                <Image 
+                    src={project.imageSources[imageIndex]} 
+                    alt="project image" 
+                    className={`transition-opacity duration-300 ${isImageLoading ? "opacity-0" : "opacity-100"}`}
+                    onLoadingComplete={() => setIsImageLoading(false)}
+                /> 
+            </div>
+        )
     }
     const renderModal = () => {
         const modal = isModalOpen ? <div className={`image-modal ${extraStyling}`}>
@@ -55,9 +73,7 @@ const ImageModal: React.FC<ImageModalProps> = ({project, setIsModalOpen, isModal
                         <path stroke="#D22727" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"/>
                     </svg>
                 </div>}
-                <div className="software-project-image">
                 {renderImages()}
-                </div>
                 {/* only show arrows if there is more than one image */}
                 {project.imageSources.length > 1 && <div className="arrow arrow-right" onClick={handleBackImage}>
                     <svg className="w-6 h-6 text-primary-red arrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
