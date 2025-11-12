@@ -41,12 +41,13 @@ body {
   flex-direction: column;
   justify-content: start;
   align-items: end;
-  padding-left: 5rem;
+  /* padding-left: 5rem; */
   /* max-width: 30%; */
   min-width: fit-content;
   color: var(--text-main);
   order: 2;
   font-size: larger;
+  min-width: 30%;
 }
 
 .sidemenu-item {
@@ -68,7 +69,9 @@ body {
 
 .home {
   display: flex;
-  margin: 5em;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  margin-top: 7rem;
   flex-direction: row;
   min-width: min-content;
 }
@@ -95,6 +98,7 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 70%;
+  max-width: 70%;
   min-height: 100%;
   order: 1;
 }
@@ -112,14 +116,13 @@ body {
   font-style: normal;
   font-size: xx-large;
   max-width: 60%;
-  min-height: 60%;
   order: 2;
+  min-height: 80%;
   /* color: var(--text-dark); */
  
 }
 
 .left-footer{
-  padding-top: 3rem;
   min-height: 20%;
   order: 3;
 }
@@ -317,7 +320,11 @@ body {
 /* EXPERIENCES PAGE STYLING */
 
 .edu-work-icons {
+  margin: 0;
+}
 
+.experiences-icon {
+  font-weight: 500;
 }
 
 .experiences-icon:hover {
@@ -331,7 +338,7 @@ body {
 }
 
 .experiences-list-container {
-  margin-left: 1.75rem;
+  /* margin-left: 1.75rem; */
 }
 
 .list-numbers-container {
@@ -343,7 +350,6 @@ body {
   color: var(--primary-text);
   margin-top: 0.5rem;
   font-size: medium;
-  margin-bottom: 2rem;
   width: fit-content;
   height: fit-content;
 }
@@ -388,6 +394,7 @@ body {
     overflow-x: hidden;
   }
   .left-header {
+    min-height: 20%;
     padding: 0;
   }
   .left-footer {
@@ -480,9 +487,6 @@ body {
   }
   .experiences-list-container {
     min-width: 4rem;
-  }
-  .experiences-list-container {
-    margin-left: 1.3rem;
   }
   .experience-modal-info-container {
     width: 100%;
