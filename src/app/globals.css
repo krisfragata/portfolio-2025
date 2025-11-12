@@ -30,6 +30,8 @@ body {
   font-family: var(--font-krub), sans-serif;
   margin: 0;
   padding: 0;
+  scrollbar-color: var(--primary-text);
+  scrollbar-width: thin;
 }
 
 /* nav bar styling */
@@ -74,6 +76,8 @@ body {
   margin-top: 7rem;
   flex-direction: row;
   min-width: min-content;
+  scrollbar-color: var(--primary-text);
+  scrollbar-width: thin;
 }
 
 /* title styling  */
@@ -283,6 +287,8 @@ body {
   overflow-y: scroll;
   margin-left: 1rem;
   margin-top: 1rem;
+  scrollbar-color: var(--primary-text);
+  scrollbar-width: thin;
 }
 
 .info-header {
