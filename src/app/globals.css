@@ -301,11 +301,6 @@ body {
   flex-direction: column;
 }
 
-.links-list {
-  display: flex;
-  flex-direction: column;
-}
-
 .link-item {
   text-decoration: underline;
 }
