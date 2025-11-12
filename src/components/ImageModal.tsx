@@ -16,6 +16,7 @@ const ImageModal: React.FC<ImageModalProps> = ({project, setIsModalOpen, isModal
 
     const handleClose = () => {
         setIsModalOpen(false);
+        setIsImageLoading(false);
     }
 
     const handleNextImage = () => {
@@ -55,7 +56,9 @@ const ImageModal: React.FC<ImageModalProps> = ({project, setIsModalOpen, isModal
                     src={project.imageSources[imageIndex]} 
                     alt="project image" 
                     className={`transition-opacity duration-300 ${isImageLoading ? "opacity-0" : "opacity-100"}`}
-                    onLoadingComplete={() => setIsImageLoading(false)}
+                    onLoadingComplete={() => {
+                        setTimeout(() => setIsImageLoading(false), 0)
+                    }}
                 /> 
             </div>
         )
