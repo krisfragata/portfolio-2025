@@ -6,8 +6,10 @@
   --text-main: #427B78; /* main color for texts */
   --primary-text: #D22727; /* highlighting color for important texts */
   --text-highlight-dark-bg: #F6EEC8; /* text color for darker backgrounds */
+  --text-highlight-hover: #f7e279;
   --button-light: #8DB2B0; /* highlighting color for buttons */
   --text-dark: #004643;
+  --background-dark-edge: #f7d2bb;
 }
 
 @theme inline {
@@ -25,14 +27,28 @@
 }
 
 body {
-  background-color: var(--background);
+  background: radial-gradient(circle, var(--background-dark-edge) 0%, var(--background) 50%, var(--background) 100%);
   color: var(--foreground);
   font-family: var(--font-krub), sans-serif;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  scrollbar-color: var(--primary-text) var(--primary-text);
-  scrollbar-width: thin;
+  scrollbar-color: var(--button-light) var(--primary-text);
+}
+
+/* GENERAL STYLING */
+.highlight {
+  background-color: var(--text-highlight-dark-bg); 
+  padding: 2px 4px; 
+}
+
+.highlight:hover {
+  cursor: pointer;
+  background-color: var(--text-highlight-hover);
+}
+
+.text-primary {
+  color: var(--primary-text);
 }
 
 /* nav bar styling */
@@ -77,8 +93,7 @@ body {
   margin-top: 7rem;
   flex-direction: row;
   min-width: min-content;
-  scrollbar-color: var(--primary-text) var(--primary-text);
-  scrollbar-width: thin;
+  scrollbar-color: var(--button-light) var(--primary-text);
 }
 
 /* title styling  */
@@ -93,9 +108,27 @@ body {
   cursor: pointer;
 }
 
-.text-primary {
-  color: var(--primary-text);
+.blurb {
+  position: fixed;
+  top: 55%;
+  left: 30%;
+  background-color: var(--background);
+  border: 0.05em solid var(--primary-text);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10em;
+  z-index: 2000;
 }
+
+.blurb-text {
+  padding: 1rem;
+  font-size: medium;
+}
+
+
 
 /* layout wrappers styling  */
 
@@ -106,8 +139,7 @@ body {
   max-width: 70%;
   min-height: 100%;
   order: 1;
-  scrollbar-color: var(--primary-text) var(--primary-text);
-  scrollbar-width: thin;
+  scrollbar-color: var(--button-light)  var(--primary-text);
 }
 
 .left-header {
@@ -290,8 +322,7 @@ body {
   overflow-y: scroll;
   margin-left: 1rem;
   margin-top: 1rem;
-  scrollbar-color: var(--primary-text) var(--primary-text);
-  scrollbar-width: thin;
+  scrollbar-color: var(--button-light) var(--primary-text);
 }
 
 .info-header {
@@ -391,8 +422,7 @@ body {
     max-width: fit-content;
     overflow-x: hidden;
     overflow-y: visible;
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary-text) var(--primary-text);
+    scrollbar-color: var(--button-light) var(--primary-text);
   }
   .home {
     flex-direction: column;
@@ -400,8 +430,11 @@ body {
     max-width: 100%;
     overflow-x: hidden;
     overflow-y: visible;
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary-text) var(--primary-text);
+    scrollbar-color: var(--button-light) var(--primary-text);
+  }
+  .blurb {
+    top: 50%;
+    right: 10%;
   }
   .left-header {
     min-height: 20%;
@@ -415,8 +448,7 @@ body {
     max-width: 80%;
     font-size: x-large;
     padding-top: 1em;
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary-text) var(--primary-text);
+    scrollbar-color: var(--button-light) var(--primary-text);
   }
   .sidemenu {
     align-items: start;
