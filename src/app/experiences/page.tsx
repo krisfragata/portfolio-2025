@@ -43,7 +43,7 @@ const Experiences: React.FC = () => {
            className="experiences-list-item" 
            key={index}
            value={edu.id}
-        ><span className="text-primary list-numbers-container">{`0${index}`}</span>{`${edu.schoolName}`}</li>
+        ><span className="text-primary list-numbers-container">{`-`}</span>{`${edu.schoolName}`}</li>
     });
 
     /**
@@ -83,7 +83,7 @@ const Experiences: React.FC = () => {
             className="experiences-list-item"
             key={index}
             value={work.id}
-        ><span className="text-primary list-numbers-container">{`0${index}`}</span>{`${work.companyName}`}</li>
+        ><span className="text-primary list-numbers-container">{`-`}</span>{`${work.companyName}`}</li>
     });
 
     /**
