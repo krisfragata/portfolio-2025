@@ -27,8 +27,8 @@ export default function Home() {
   const renderBlurb = () => {
     
     return (
-      <div className="blurb animate-pulse">
-        <p className="blurb-text">I do NOT live in Manila. But I miss the Philippines so much that this is more of a manifestation :)</p>
+      <div className="blurb">
+        <p className="blurb-text">I do NOT live in Bagio City currently. But I miss the Philippines so much that this is more of a manifestation :)</p>
       </div>
     )
   }
@@ -47,7 +47,7 @@ export default function Home() {
 
   return (
     <div className="left-main-text">
-      I’m a <span className="text-primary hover:cursor-pointer hover:font-semibold">software engineer!</span> and <span className="text-primary hover:cursor-pointer hover:font-semibold">artist!</span> based in Boston, Massachusetts and <span 
+      I’m a <span className="text-primary hover:cursor-pointer hover:font-semibold">software engineer</span> and <span className="text-primary hover:cursor-pointer hover:font-semibold">artist</span> based in Boston, Massachusetts and <span 
         className="highlight" 
         onMouseOver={() => {
           if (windowWidth < 768) return;
@@ -61,7 +61,7 @@ export default function Home() {
           const isOpen = isBlurbOpen;
           setIsBlurbOpen(!isOpen);
         }}
-      >Manila, Philippines</span>.
+      >Baguio City, Philippines</span>.
       {isBlurbOpen && renderBlurb()}
       {isSoftwareBlurbOpen && renderSoftwareBlurb()}
     </div>

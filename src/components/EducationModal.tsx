@@ -1,14 +1,14 @@
 import { Education } from "@/app/experiences/education_list";
 import React, { JSX } from "react"
 
-interface ExperiencesModalProps {
+interface EducationModalProps {
     educationList: Education[];
     isModalOpen: boolean;
     setIsModalOpen: Function;
     extraStyling: string;   
 }
 
-const EducationModal: React.FC<ExperiencesModalProps> = ({educationList, isModalOpen, setIsModalOpen, extraStyling}) => {
+const EducationModal: React.FC<EducationModalProps> = ({educationList, isModalOpen, setIsModalOpen, extraStyling}) => {
 
     /**
      * @description handle closing modal window

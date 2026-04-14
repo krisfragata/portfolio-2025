@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FFF0E5;
-  --foreground: #FFF0E5;
+  --background: #fbf6f2;
+  --foreground: #fbf6f2;
   --text-main: #427B78; /* main color for texts */
   --primary-text: #D22727; /* highlighting color for important texts */
   --text-highlight-dark-bg: #F6EEC8; /* text color for darker backgrounds */
@@ -75,11 +75,11 @@ body {
 
 .sidemenu-item:hover {
   color: var(--primary-text);
-  text-decoration: underline;
 }
 
 .sidemenu-item-active {
   color: var(--primary-text);
+  text-decoration: underline;
   padding-bottom: 1.25rem;
   /* text-decoration: underline; */
 }
@@ -102,6 +102,7 @@ body {
   color: var(--primary-text);
   font-size: xx-large;
   height: fit-content;
+  stroke: var(--text-dark);
 }
 
 .title:hover {
@@ -153,7 +154,7 @@ body {
   color: var(--text-main);
   font-weight: 500;
   font-style: normal;
-  font-size: xx-large;
+  font-size: x-large;
   max-width: 60%;
   order: 2;
   min-height: 80%;
@@ -202,7 +203,7 @@ body {
 .software-projects-list-item {
   /* font-weight: 500; */
   /* font-style: normal; */
-  font-size: xx-large;
+  font-size: x-large;
   /* max-width: 60%; */
   /* min-height: 60%;  */
   /* color: var(--text-dark); */
@@ -452,7 +453,7 @@ body {
   }
   .sidemenu {
     align-items: start;
-    font-size: large;
+    font-size: medium;
     max-width: 80%;
     padding-left: 0rem;
   }
